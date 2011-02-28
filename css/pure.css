@@ -1,0 +1,42 @@
+/* License: CC-BY-NC */
+/* Inspiration: http://hadret.rootnode.net/ */
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+    color : #333;
+    background-image: url(bg-content.png);
+    width: 600px; margin: auto;
+}
+
+hr {
+    border : none;
+    border-top : 0.083em solid #888;
+    border-bottom : 0.083em solid #fff;
+    margin : 1.25em auto 0;
+}
+
+h1 {
+    font-family : "Book Antiqua", Georgia, Times, "Times New Roman", serif;
+    font-size : 3em;
+}
+
+h1 a { color: #333!important; }
+
+.index article > h1 { font-size: 1.1em; }
+
+/* Text shadow */
+p, a, a:link, a:visited, a:hover { text-shadow : 0 0.063em white; }
+h1 > a { text-shadow : 0 0.021em white!important; text-decoration: none;}
+h1 > a:hover { border-bottom: 1px solid black;}
+a, a:link, a:visited { border : none; color : #555; }
+a:hover { color : #000; }
+
+pre { 
+    font-family : Monaco, Consolas, "Droid Sans Mono", "DejaVu Sans Mono", monospace;
+    font-size : 0.75em;
+    overflow : auto;
+    padding : 0.417em;
+    background : #000;
+    color : #fff;
+    border-left: 4px solid white;
+}
