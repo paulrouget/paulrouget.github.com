@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: post
 title: First Post
 ---
 
+Foo.
 This will be the best blog ever.
