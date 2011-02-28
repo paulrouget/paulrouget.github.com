@@ -31,6 +31,10 @@ h1 > a:hover { border-bottom: 1px solid black;}
 a, a:link, a:visited { border : none; color : #555; }
 a:hover { color : #000; }
 
+.index h2 {display: inline;}
+.index h2:before {content: "# "}
+.index .date {display: inline; margin-left: 15px; color: #999;}
+
 pre { 
     font-family : Monaco, Consolas, "Droid Sans Mono", "DejaVu Sans Mono", monospace;
     font-size : 0.75em;
@@ -39,4 +43,22 @@ pre {
     background : #000;
     color : #fff;
     border-left: 4px solid white;
+}
+
+footer {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+footer:before {
+    content: "";
+    display: block;
+    width: 100%;
+    position: absolute; top: 0;
+    border : none;
+    border-top : 0.083em solid #888;
+    border-bottom : 0.083em solid #fff;
 }
