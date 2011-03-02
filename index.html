@@ -1,9 +1,11 @@
 ---
 layout: index
-title: Paul Rouget's Blog
+title: Paul Rouget
 ---
 
-{% for post in site.posts limit:5 %}
-<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-<em class="date">Posted on {{ post.date | date_to_long_string }}.</em>
-{% endfor %}
+<ul>
+  <li><span>Date</span><span>Post</span>
+  {% for post in site.posts limit:5 %}
+  <li><time datetime="{{ post.date }}">{{ post.date | date_to_string }}</time><a href="{{ post.url }}">{{ post.title }}</a>
+  {% endfor %}
+</ul>

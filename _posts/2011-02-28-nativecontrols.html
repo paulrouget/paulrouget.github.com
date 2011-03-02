@@ -1,0 +1,46 @@
+---
+layout: post
+title: Experimenting with HTML5 and native controls
+---
+
+<strong>THIS IS AN EXPERIMENT.</strong>
+
+<p>Little screencast:</p>
+<iframe style="display: block;" title="YouTube video player" width="480" height="390" src="http://www.youtube.com/embed/EXX8uZ1OnCQ" frameborder="0" allowfullscreen></iframe>
+
+<em>This video is hosted by YouTube and uses the <a title="HTML5 video" href="https://developer.mozilla.org/En/HTML/Element/Video">HTML5 video</a> tag if you have enabled it (<a href="http://www.youtube.com/html5">see here</a>). YouTube video <a href="http://www.youtube.com/watch?v=EXX8uZ1OnCQ">here</a>.</em>
+
+<p><a href="http://blog.mozilla.com/faaborg/">Alex Faaborg</a> recently published some mockups for "Site Specific Browsers":</p>
+<img src="imgs/ssb.png">
+<p>I thought it would be a good idea to extend this concept. So here is an idea:
+<ul>
+
+  <li>A webpage should be able to expose native controls to the UA
+  <li>A webpage, if considered as a Web App, should be able to get rid of the URL / Back Forward Tool bar
+  <li>A webpage should be able to expose controls to the context menu
+</ul>
+</p>
+<p>And I think the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#menus">menu</a> specification could help. I doesn't fit perfectly my needs. But here is a way to implement this idea:
+<ul>
+  <li><code>&lt;menu type=application></code> is a menu accessible from the UA menu bar
+  <li>A <code>&lt;html></code> attribute would hide the native toolbar. The page would be in charge of creating a menu.
+  <li><code>&lt;menu type=context></code> is menu that should be injected into the native context menu
+
+</ul>
+
+<p><code>type=toolbar</code> could be used to override the native toolbar, but website already have toolbars (think twitter, facebook).
+I don't see any clean ways to use, in a progressive-enhancement manner, this toolbar. I prefer an attribute.</p>
+
+<p><code>type=application</code> is not part of the specification.</p>
+
+<p>I wrote a <a href="http://people.mozilla.com/~prouget/bugs/context-menu-test/nativemenu.v2.xpi">little JetPack (restart-less) extension</a> to experiment with this idea. You can test it with <a href="http://people.mozilla.com/~prouget/bugs/context-menu-test/test.v2.html">this</a> web app.</p>
+
+
+<p>
+This brings a lot of questions. What about security? What about type=toolbar? Should the app button be persistent? What if there several app buttons?
+What about styling the menuitems? Should we do that only for app tabs? What about prism-like web apps?
+</p>
+
+<p>
+Let me know what you think
+</p>
