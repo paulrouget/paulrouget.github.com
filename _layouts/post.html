@@ -2,24 +2,32 @@
 
 <meta charset="utf8">
 <meta name="viewport" content="width=device-width; user-scalable=0" >
+<link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+
 <link rel="stylesheet" href="/css/post.css">
 <title>{{ page.title }}</title>
 
-<header><a href="http://twitter.com/paulrouget">twitter</a> <a href="http://paulrouget.com/index.xml">rss</a> <a href="http://paulrouget.com">blog</a> <a href="/s/bio">about</a></header>
-
-<h1>{{ page.title }}</h1>
-
-{{ content }}
-
-<div id="social" style="filter: url(#blackandwhite)">
-<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="paulrouget">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-<script>reddit_title={{ page.title }}</script>
-<script type="text/javascript" src="http://reddit.com/static/button/button1.js"></script>
-</div>
-<svg height="0"><filter id="blackandwhite"><feColorMatrix values="0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0 0 0 1 0"/></filter></svg>
+<header>
+    <a href="http://twitter.com/paulrouget"><img src="/assets/bigtwitter.png"><span>follow&nbsp;me&nbsp;on&nbsp;twitter</span></a>
+    <a href="http://paulrouget.com/index.xml"><img src="/assets/rss.png"><span>RSS&nbsp;feed</span></a>
+</header>
 
 
-<div id="disqus_thread"></div>
-<script src="http://disqus.com/forums/paulrouget/embed.js"></script>
+<article>
+    {{ content }}
 
-<footer>Copyright © 2010-2011 Paul Rouget</footer>
+    <footer>
+        <a href="http://paulrouget.com">
+            <img src="/assets/twitter_avatar.jpg"> Paul Rouget
+        </a>
+    </footer>
+
+    <div id="meta">
+        <span id="date">{{ page.date | date_to_string}} - </span>
+        <a href="" id="twitter" title="tweet this">
+            <span>tweet&nbsp;this</span>
+            <img src="/assets/twitter.png">
+        </a>
+    </div>
+</article>

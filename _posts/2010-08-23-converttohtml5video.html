@@ -1,0 +1,89 @@
+---
+layout: post
+title: Converting to WebM, OGG/Theora and MP4.
+permalink: e/converttohtml5video
+---
+
+<h1>Converting to WebM, OGG/Theora and MP4.</h1>
+
+If you want to use the &lt;video&gt; tag, you need to encode your video to 3 formats:
+
+<ul>
+  <li>WebM/VP8
+  <li>OGG/Theora
+  <li>MP4/h264
+
+</ul>
+Here is a quick howto:</p>
+<h2>Build ffmpeg (version &gt;= 0.6)</h2>
+<p>Create a directory, let's say "myvideos". All the comming commands will
+make sure that everything stays in this directory. Your system won't be
+altered.</p>
+
+<h3>Downloads:</h3>
+<ul>
+  <li>ffmpeg source code: <a href="http://www.ffmpeg.org/releases/">here</a>.
+</ul>
+
+<p>dependencies:</p>
+<ul>
+  <li>vorbis: <a href="http://downloads.xiph.org/releases/vorbis/">here</a> (the version of you distribution should be ok: libvorbis-dev);
+  <li>x264: <a href="ftp://ftp.videolan.org/pub/videolan/x264/snapshots/">here</a>;
+  <li>faac: <a href="http://downloads.sourceforge.net/faac/">here</a>;
+  <li>theora: <a href="http://downloads.xiph.org/releases/theora/">here</a>.
+  <li>vpx:<br><pre>git clone git://review.webmproject.org/libvpx.git</pre>
+
+</ul>
+
+<h3>Build:</h3>
+<p><code>mkdir ~/myvideos/dist</code></p>
+For these 5 dependencies:
+<ul>
+  <li>un-compress;
+  <li>go to the source directory;
+  <li><code>./configure --prefix=~/myvideos/dist &amp;&amp; make &amp;&amp; make install</code>
+
+</ul>
+<p>Let's build ffmpeg:</p>
+<pre>$ LDFLAGS=-L$~/myvideos/dist/lib \
+CFLAGS=-I~/myvideos/dist/include \
+./configure --prefix=~/myvideos/dist --enable-gpl\
+--enable-nonfree --enable-libvpx --enable-libvorbis\
+--enable-pthreads --enable-libx264 --enable-libfaac\
+--enable-libtheora
+$ make && make install</pre>
+<h3>Convert</h3>
+To call ffmpeg:
+<p><code>~/myvideos/dist/bin/ffmeg</code></p>
+<p>But first, you need to tell where to find libraries:</p>
+<p><code>export LD_LIBRARY_PATH=~/myvideos/dist/lib/</code></p>
+
+<p>Here are my 3 command lines to convert to WebM, OGG/Theora and mp4:
+<ul>
+<li>OGG/Theora
+<pre lang="shell">
+ffmpeg -i input.mov \
+  -acodec libvorbis -ac 2 -ab 96k -ar 44100 \
+  -b 345k -s 640x360 output.ogv
+</pre>
+
+<li>WebM/vp8
+<pre lang="shell">
+ffmpeg -i input.mov \
+  -acodec libvorbis -ac 2 -ab 96k -ar 44100 \
+  -b 345k -s 640x360 output.webm
+</pre>
+
+<li>MP4/h264
+<pre lang="shell">
+ffmpeg -i input.mov \
+  -acodec libfaac -ab 96k \
+  -vcodec libx264 -vpre slower -vpre main \
+  -level 21 -refs 2 -b 345k -bt 345k \
+  -threads 0 -s 640x360 output.mp4
+</pre>
+</ul>
+
+<em>Video are resized to 640x360 with a bitrate of 345k.</em>
+
+<p>Hope it helps.</p>

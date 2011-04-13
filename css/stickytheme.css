@@ -1,0 +1,118 @@
+body {
+    background-color: #261C21;
+    color: #FAE50B;
+    font-family: 'Cantarell', arial, serif;
+    padding-top: 20px;
+}
+
+article {
+    background: #FAE50B;
+    color: #261C21;
+    background: -moz-linear-gradient(top, #FAE50B, #EE9E00);
+    box-shadow: 0 0 20px black;
+    width: 400px;
+    margin: auto;
+    padding: 40px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+article h1, article h2 {display: inline; }
+article p { text-align: justify}
+article * {max-width: 400px}
+
+/* List */
+li { list-style: none}
+li:before {content: "⇢"}
+#home li:before { content: ""; }
+#home li time:after { content: " ⇢ "; }
+
+/* Links */
+article a { color: #FF0066!important}
+
+/* Specific homepage stuff */
+#home ul { padding-left: 0}
+#home li a {max-width: 270px; display: inline-block}
+#home li > * {vertical-align: top;}
+
+/* Highlight */
+article h1, article h2, article .highlight {
+    background-color: #261C21;
+    color: #FAE50B;
+    line-height: 1.6em;
+    outline: 0.2em solid #261C21;
+}
+
+article footer a * {
+    vertical-align: middle;
+}
+
+article footer a {
+    color: #261C21!important;
+    text-decoration: none;
+    -moz-transition-duration: 0.2s;
+}
+article footer:hover a {
+    color: #FF0066!important;
+}
+article footer img {width: 60px;}
+article footer {
+    font-size: 30px;
+    letter-spacing: -5px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* meta */
+#meta {
+    text-align: right;
+    position: absolute;
+    bottom: -30px; right: 5px;
+}
+#meta > * {
+    text-align: right;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 12px;
+    color: #FAE50B;
+}
+#meta #date {
+    vertical-align: middle;
+}
+#meta #twitter {
+    text-decoration: none;
+}
+#meta #twitter span {
+    max-width: 0px;
+    -moz-transition-duration: 0.2s;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+}
+#meta #twitter:hover span {
+    max-width: 100px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+#meta #twitter img {
+    width: 12px;
+    background-color: #FAE50B;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid #261C21;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+
+header { position: absolute; top: 10px; left: 10px; }
+header > a { opacity: 0.2;  -moz-transition: 0.3s; color: #FAE50B!important; text-decoration: none; font-size: 25px; display: block;}
+header > a > * { vertical-align: middle;}
+header > a > span {max-width: 0px; overflow: hidden; display: inline-block; -moz-transition: 0.3s; margin-left: 15px;}
+header > a:hover { opacity: 1;}
+header > a:hover > span { max-width: 300px;}
+header img {}

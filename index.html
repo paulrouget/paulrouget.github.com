@@ -2,10 +2,40 @@
 layout: index
 title: Paul Rouget
 ---
+<!DOCTYPE html>
 
-<ul>
-  <li><span>Date</span><span>Post</span>
-  {% for post in site.posts limit:5 %}
-  <li><time datetime="{{ post.date }}">{{ post.date | date_to_string }}</time><a href="{{ post.url }}">{{ post.title }}</a>
-  {% endfor %}
-</ul>
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width; user-scalable=0" >
+<link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="/css/stickytheme.css">
+<title>Paul Rouget</title>
+
+<header>
+    <a href="http://twitter.com/paulrouget"><img src="/assets/bigtwitter.png"><span>follow&nbsp;me&nbsp;on&nbsp;twitter</span></a>
+    <a href="http://paulrouget.com/index.xml"><img src="/assets/rss.png"><span>RSS&nbsp;feed</span></a>
+</header>
+
+<article id="home">
+
+    <h1>Hi. I'm Paul Rouget. I work at <a href="http://mozilla.org">Mozilla</a>.
+    I write code. I give talks.
+    I <a href="http://twitter.com/paulrouget">tweet</a>.
+    </h1>
+
+    {{ content }}
+
+    <ul>
+        {% for post in site.posts limit:100 %}
+        <li><time datetime="{{ post.date }}">{{ post.date | date_to_string }}</time><a href="{{ post.url }}">{{ post.title }}</a>
+        {% endfor %}
+    </ul>
+
+    <footer>
+        <a href="http://paulrouget.com">
+            <img src="/assets/twitter_avatar.jpg"> Paul Rouget
+        </a>
+    </footer>
+
+
+</article>
