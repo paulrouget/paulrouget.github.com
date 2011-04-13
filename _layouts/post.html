@@ -5,6 +5,7 @@
 <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" href="/css/stickytheme.css">
+<link rel="stylesheet" href="/css/syntax.css">
 <title>{{ page.title }}</title>
 
 <header>
@@ -24,7 +25,7 @@
 
     <div id="meta">
         <span id="date">{{ page.date | date_to_string}} - </span>
-        <a href="" id="twitter" title="tweet this">
+        <a href="http://twitter.com/share?url=http%3A%2F%2Fpaulrouget.com%2F{{page.url | xml_escape}}" id="twitter" title="tweet this" target="_blank">
             <span>tweet&nbsp;this</span>
             <img src="/assets/twitter.png">
         </a>

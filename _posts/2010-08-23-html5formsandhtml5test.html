@@ -20,8 +20,8 @@ Webkit has a good score (34/38, 89%), although their HTML5 forms support is inco
 just testing if the <code>input type</code> is supported as a DOM property is not enough.
 The good way is to check that the constraint is actually applied (<code>input.validity.valid</code>).
 </p>
-<pre lang="javascript">
-//Exemple: testing &lt;input type=email&gt;
+{% highlight js %}
+//Exemple: testing <input type=email>
 
 /*
  * How it was tested
@@ -41,7 +41,7 @@ if (!input.validity.valid) {
       valid = true;
     }
 }
-</pre>
+{% endhighlight %}
 <p>
 I also added some tests for <code>input.form</code>, <code>input.labels</code> and <code>label.control</code>. I'm also testing the forms related CSS selectors (<code>:required</code>, <code>:optional</code>, <code>:valid</code> and <code>:invalid</code>).
 

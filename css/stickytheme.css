@@ -25,20 +25,21 @@ article * {max-width: 400px}
 
 /* List */
 li { list-style: none}
-li:before {content: "⇢"}
-#home li:before { content: ""; }
-#home li time:after { content: " ⇢ "; }
+li:before {content: "⇢"; margin-right: 5px;}
 
 /* Links */
 article a { color: #FF0066!important}
 
 /* Specific homepage stuff */
 #home ul { padding-left: 0}
-#home li a {max-width: 270px; display: inline-block}
+#home li a {max-width: 300px; display: inline-block}
 #home li > * {vertical-align: top;}
+#home li:before { content: ""; }
+#home li time {font-family: monospace; vertical-align: middle; margin-right: 10px;}
+#home li {margin-bottom: 10px;}
 
 /* Highlight */
-article h1, article h2, article .highlight {
+article h1, article h2, article .wooot {
     background-color: #261C21;
     color: #FAE50B;
     line-height: 1.6em;
@@ -115,4 +116,10 @@ header > a > * { vertical-align: middle;}
 header > a > span {max-width: 0px; overflow: hidden; display: inline-block; -moz-transition: 0.3s; margin-left: 15px;}
 header > a:hover { opacity: 1;}
 header > a:hover > span { max-width: 300px;}
-header img {}
+
+.highlight {
+    background-color: #261C21!important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+}

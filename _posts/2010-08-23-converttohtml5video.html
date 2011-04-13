@@ -6,7 +6,8 @@ permalink: e/converttohtml5video
 
 <h1>Converting to WebM, OGG/Theora and MP4.</h1>
 
-If you want to use the &lt;video&gt; tag, you need to encode your video to 3 formats:
+
+<p>If you want to use the &lt;video&gt; tag, you need to encode your video to 3 formats:</p>
 
 <ul>
   <li>WebM/VP8
@@ -15,7 +16,7 @@ If you want to use the &lt;video&gt; tag, you need to encode your video to 3 for
 
 </ul>
 Here is a quick howto:</p>
-<h2>Build ffmpeg (version &gt;= 0.6)</h2>
+<h2>Building ffmpeg (version &gt;= 0.6)</h2>
 <p>Create a directory, let's say "myvideos". All the comming commands will
 make sure that everything stays in this directory. Your system won't be
 altered.</p>
@@ -45,13 +46,19 @@ For these 5 dependencies:
 
 </ul>
 <p>Let's build ffmpeg:</p>
-<pre>$ LDFLAGS=-L$~/myvideos/dist/lib \
+
+{% highlight sh %}
+$ LDFLAGS=-L$~/myvideos/dist/lib \
 CFLAGS=-I~/myvideos/dist/include \
 ./configure --prefix=~/myvideos/dist --enable-gpl\
 --enable-nonfree --enable-libvpx --enable-libvorbis\
 --enable-pthreads --enable-libx264 --enable-libfaac\
 --enable-libtheora
-$ make && make install</pre>
+$ make && make install
+{% endhighlight %}
+
+
+
 <h3>Convert</h3>
 To call ffmpeg:
 <p><code>~/myvideos/dist/bin/ffmeg</code></p>
