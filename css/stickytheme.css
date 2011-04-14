@@ -1,7 +1,7 @@
 body {
     background-color: #261C21;
     color: #FAE50B;
-    font-family: 'Cantarell', arial, serif;
+    font-family: 'Cantarell', monospace;
     padding-top: 20px;
 }
 
@@ -9,6 +9,7 @@ article {
     background: #FAE50B;
     color: #261C21;
     background: -moz-linear-gradient(top, #FAE50B, #EE9E00);
+    background: -webkit-linear-gradient(top, #FAE50B, #EE9E00);
     box-shadow: 0 0 20px black;
     width: 400px;
     margin: auto;
@@ -19,8 +20,14 @@ article {
     position: relative;
 }
 
-article h1, article h2 {display: inline; }
-article p { text-align: justify}
+article h1, article h2 {
+    display: inline;
+    font-weight: bold;
+    font-size: 1.5em;
+    vertical-align: middle;
+    line-height: 1.5em;
+}
+article p {text-align: justify}
 article * {max-width: 400px}
 
 /* List */
@@ -31,19 +38,33 @@ li:before {content: "⇢"; margin-right: 5px;}
 article a { color: #FF0066!important}
 
 /* Specific homepage stuff */
-#home ul { padding-left: 0}
-#home li a {max-width: 300px; display: inline-block}
+#home ul {
+    padding-left: 0;
+}
+#home li a {
+    max-width: 300px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 #home li > * {vertical-align: top;}
 #home li:before { content: ""; }
-#home li time {font-family: monospace; vertical-align: middle; margin-right: 10px;}
+#home li time {
+    font-family: monospace;
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: 10px;
+}
 #home li {margin-bottom: 10px;}
 
 /* Highlight */
 article h1, article h2, article .wooot {
     background-color: #261C21;
     color: #FAE50B;
-    line-height: 1.6em;
-    outline: 0.2em solid #261C21;
+    outline-style: solid;
+    outline-width: 0.2em;
+    outline-color: #261C21;
 }
 
 article footer a * {
@@ -61,8 +82,6 @@ article footer:hover a {
 article footer img {width: 60px;}
 article footer {
     font-size: 30px;
-    letter-spacing: -5px;
-    font-weight: bold;
     margin-top: 20px;
 }
 
