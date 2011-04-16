@@ -75,6 +75,7 @@ article footer a {
     color: #261C21!important;
     text-decoration: none;
     -moz-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
 }
 article footer:hover a {
     color: #FF0066!important;
@@ -107,6 +108,7 @@ article footer {
 #meta #twitter span, #showcomments {
     max-width: 0px;
     -moz-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
     overflow: hidden;
     display: inline-block;
     vertical-align: middle;
@@ -136,9 +138,9 @@ article footer {
 }
 
 header { position: fixed; top: 10px; right: 10px; }
-header > a { opacity: 0.7;  -moz-transition: 0.3s; color: #FAE50B!important; text-decoration: none; font-size: 25px; display: block;}
+header > a { opacity: 0.7;  -moz-transition: 0.3s; -webkit-transition: 0.3s; color: #FAE50B!important; text-decoration: none; font-size: 25px; display: block;}
 header > a > * { vertical-align: middle;}
-header > a > span {max-width: 0px; overflow: hidden; display: inline-block; -moz-transition: 0.3s; margin-left: 15px;}
+header > a > span {max-width: 0px; overflow: hidden; display: inline-block; -moz-transition: 0.3s;  -webkit-transition: 0.3s; margin-left: 15px;}
 header > a:hover { opacity: 1;}
 header > a:hover > span { max-width: 300px;}
 
@@ -163,7 +165,7 @@ header > a:hover > span { max-width: 300px;}
 hr { visibility: hidden; }
 
 
-#comments {opacity: 0; -moz-transition: 0.2s;}
+#comments {opacity: 0; -moz-transition: 0.2s; -webkit-transition: 0.2s;}
 #comments.showme {opacity: 1;}
 
 #comments {
