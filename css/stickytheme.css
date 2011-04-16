@@ -6,6 +6,7 @@ body {
 }
 
 article {
+    display: block;
     background: #FAE50B;
     color: #261C21;
     background: -moz-linear-gradient(top, #FAE50B, #EE9E00);
@@ -22,10 +23,10 @@ article {
 
 article h1, article h2 {
     display: inline;
-    font-weight: bold;
-    font-size: 1.5em;
+    font-weight: 900;
     vertical-align: middle;
-    line-height: 1.5em;
+    font-size: 1.5em;
+    line-height: 1.6em;
 }
 article p {text-align: justify}
 article * {max-width: 400px}
@@ -84,6 +85,7 @@ article footer img {width: 60px;}
 article footer {
     font-size: 30px;
     margin-top: 20px;
+    display: block;
 }
 
 /* meta */
@@ -179,3 +181,8 @@ hr { visibility: hidden; }
     position: relative;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0){
+    article h1, article h2 {
+        display: block;
+    }
+}
