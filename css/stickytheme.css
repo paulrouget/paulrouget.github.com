@@ -59,7 +59,7 @@ article a { color: #FF0066!important}
 #home li {margin-bottom: 10px;}
 
 /* Highlight */
-article h1, article h2, article .wooot {
+article h1, article h2, .wooot {
     background-color: #261C21;
     color: #FAE50B;
     outline-style: solid;
@@ -104,13 +104,13 @@ article footer {
 #meta #twitter {
     text-decoration: none;
 }
-#meta #twitter span {
+#meta #twitter span, #showcomments {
     max-width: 0px;
     -moz-transition-duration: 0.2s;
     overflow: hidden;
     display: inline-block;
     vertical-align: middle;
-    background-color: #FAE50B;
+    background-color: #EE9E00;
     border-radius: 3px;
 }
 #meta #twitter:hover span {
@@ -120,7 +120,7 @@ article footer {
 }
 #meta #twitter img {
     width: 13px;
-    background-color: #FAE50B;
+    background-color: #EE9E00;
     padding: 5px;
     border-radius: 50%;
     border: 1px solid #261C21;
@@ -128,9 +128,15 @@ article footer {
     vertical-align: middle;
 }
 
+#showcomments {
+    max-width: 100px;
+    text-decoration: none;
+    padding-left: 4px;
+    padding-right: 4px;
+}
 
-header { position: absolute; top: 10px; left: 10px; }
-header > a { opacity: 0.2;  -moz-transition: 0.3s; color: #FAE50B!important; text-decoration: none; font-size: 25px; display: block;}
+header { position: fixed; top: 10px; right: 10px; }
+header > a { opacity: 0.7;  -moz-transition: 0.3s; color: #FAE50B!important; text-decoration: none; font-size: 25px; display: block;}
 header > a > * { vertical-align: middle;}
 header > a > span {max-width: 0px; overflow: hidden; display: inline-block; -moz-transition: 0.3s; margin-left: 15px;}
 header > a:hover { opacity: 1;}
@@ -155,3 +161,19 @@ header > a:hover > span { max-width: 300px;}
 }
 
 hr { visibility: hidden; }
+
+
+#comments {opacity: 0; -moz-transition: 0.2s;}
+#comments.showme {opacity: 1;}
+
+#comments {
+    background: #EE9E00;
+    color: #261C21;
+    width: 400px;
+    margin: auto;
+    padding: 40px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    position: relative;
+}
+

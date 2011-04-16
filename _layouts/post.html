@@ -9,8 +9,8 @@
 <title>{{ page.title }}</title>
 
 <header>
-    <a href="http://twitter.com/paulrouget"><img src="/assets/bigtwitter.png"><span>follow&nbsp;me&nbsp;on&nbsp;twitter</span></a>
     <a href="http://paulrouget.com/index.xml"><img src="/assets/rss.png"><span>RSS&nbsp;feed</span></a>
+    <a href="http://twitter.com/paulrouget"><img src="/assets/bigtwitter.png"><span>follow&nbsp;me&nbsp;on&nbsp;twitter</span></a>
 </header>
 
 
@@ -29,11 +29,17 @@
             <span>tweet&nbsp;this</span>
             <img src="/assets/twitter.png">
         </a>
+        {% if page.comments %}
+        <a href="#comments" id="showcomments" onclick='document.getElementById("comments").className="showme";document.getElementById("disqus_script").src="http://disqus.com/forums/paulrouget/embed.js"'>show comments</a>
+        {% endif %}
     </div>
 </article>
 
 {% if page.comments %}
-<div id="disqus_thread"></div>
-<script src="http://disqus.com/forums/paulrouget/embed.js"></script>
+<!-- comments -->
+<div id="comments">
+    <h1 class="wooot">Comments</h1>
+    <div id="disqus_thread"></div><script id="disqus_script"></script>
+</div>
 {% endif %}
 
