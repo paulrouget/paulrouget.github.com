@@ -110,7 +110,7 @@ article footer {
     overflow: hidden;
     display: inline-block;
     vertical-align: middle;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #FAE50B;
     border-radius: 3px;
 }
 #meta #twitter:hover span {
@@ -119,7 +119,7 @@ article footer {
     padding-right: 4px;
 }
 #meta #twitter img {
-    width: 12px;
+    width: 13px;
     background-color: #FAE50B;
     padding: 5px;
     border-radius: 50%;
@@ -142,3 +142,16 @@ header > a:hover > span { max-width: 300px;}
     margin-bottom: 10px;
     padding: 5px;
 }
+
+.frame {
+    position: relative;
+    left: 195px;
+    display: block;
+    box-shadow: 0 0 10px black;
+    border: 5px solid #FAE50B;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: none;
+}
+
+hr { visibility: hidden; }
