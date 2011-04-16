@@ -32,7 +32,7 @@ article * {max-width: 400px}
 
 /* List */
 li { list-style: none}
-li:before {content: "⇢"; margin-right: 5px;}
+article li:before {content: "⇢"; margin-right: 5px;}
 
 /* Links */
 article a { color: #FF0066!important}
