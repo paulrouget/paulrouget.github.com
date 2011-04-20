@@ -5,13 +5,17 @@ body {
     padding-top: 20px;
 }
 
+.float-right { float: right; margin: 8px;}
+.float-left { float: left; margin: 8px;}
+
 article {
     display: block;
     background: #FAE50B;
     color: #261C21;
     background: -moz-linear-gradient(top, #FAE50B, #EE9E00);
     background: -webkit-linear-gradient(top, #FAE50B, #EE9E00);
-    box-shadow: 0 0 20px black;
+    box-shadow: 0 0 20px 10px black;
+    border-radius: 3px;
     width: 400px;
     margin: auto;
     padding: 40px;
@@ -25,7 +29,7 @@ article h1, article h2 {
     display: inline;
     font-weight: 900;
     vertical-align: middle;
-    font-size: 1.5em;
+    font-size: 1.55em;
     line-height: 1.6em;
 }
 article p {text-align: justify}
