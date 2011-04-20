@@ -165,7 +165,7 @@ header > a:hover > span { max-width: 300px;}
     border: 5px solid #FAE50B;
     margin-top: 10px;
     margin-bottom: 10px;
-    max-width: 10000;
+    max-width: 10000px;
 }
 
 hr { visibility: hidden; }
