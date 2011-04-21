@@ -56,10 +56,13 @@ article a { color: #FF0066!important}
 #home li > * {vertical-align: top;}
 #home li:before { content: ""; }
 #home li time {
-    font-family: monospace;
-    vertical-align: middle;
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-left: -10px;
     font-size: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 70px;
+    text-align: right;
 }
 #home li {margin-bottom: 10px;}
 
