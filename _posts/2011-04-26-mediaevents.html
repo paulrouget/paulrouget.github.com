@@ -1,0 +1,62 @@
+---
+layout: post
+title: "Firefox Experiment: Media Events?"
+permalink: e/mediaevents
+comments: true
+mozilla: true
+---
+
+<h1>How to have a better integration with
+an online Music player?</h1>
+
+<img class="postimg" src="/assets/posts/keys.jpg">
+
+<p>This is something I've been thinking a lot lately.
+I use online music players like LastFM and GrooveShark.</p>
+<p>I want to be able to control such web apps
+with the <strong>multimedia keys</strong>, and I want
+a <strong>visual feedback</strong> to know which tab is generating sound.</p>
+
+<h1>"media" events</h1>
+
+<p>Here is an idea. What if we introduce a new kind of events. The
+"media" events.</p>
+
+<em>I wrote some code to test this idea, here is a screencast, see below for the source code.</em>
+<iframe class="frame" title="YouTube video player" style="margin-left: -240px" width="480" height="390" src="http://www.youtube.com/embed/M7XlTEDGe6o" frameborder="0" allowfullscreen></iframe>
+<em>And since you can't see the Visual Feedback in the video,  here is a screenshot:</em>
+<img class="postimg" src="/assets/posts/soundfeedback.png">
+
+<h2>Multimedia keys</h2>
+<p>Some media events would be fired if the user use
+the media keys, even if the tab is on the background or your browser not
+focused.</p>
+
+{% highlight sh %}
+  window.addEventListener("media",
+    function(e) {
+      // could be: play, pause, previous, next
+      if (e.data == "play") {
+        myplayer.play();
+      }
+  }, true);
+{% endhighlight %}
+
+<h2>Visual feedback</h2>
+<p>The browser could automatically detect if sound is being
+generated from the tab, and give a visual feedback.
+But it's something quite tricky (especially because of the plugins, see 
+<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=486262">bug 486262 </a>).</p>
+<p>So what about letting the web page notify the browser the some sound is being played, by
+firing a media event ("sound"/"nosound")?</p>
+
+<h2>What do you think</h2>
+
+<p>Does it make sense? What about the names of these events? Also, what
+happens if the user has different web pages listening to the media events?</p>
+
+<h2>Source code</h2>
+
+<p>Find the source code of this addon <a href="https://github.com/paulrouget/htmlmediakeys">here</a>.
+Works only on Linux (any port to Windows/Mac would be appreciated).</p>
+
