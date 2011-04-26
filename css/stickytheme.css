@@ -67,7 +67,7 @@ article a { color: #FF0066!important}
 #home li {margin-bottom: 10px;}
 
 /* Highlight */
-article h1, article h2, .wooot {
+article h1, article h2 {
     background-color: #261C21;
     color: #FAE50B;
     outline-style: solid;
@@ -192,4 +192,12 @@ hr { visibility: hidden; }
     article h1, article h2 {
         display: block;
     }
+}
+
+article .postimg {
+    border: 5px solid #261C21;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
