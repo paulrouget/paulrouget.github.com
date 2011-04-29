@@ -26,7 +26,6 @@ article {
 }
 
 article h1, article h2 {
-    display: inline;
     font-weight: 900;
     vertical-align: middle;
     font-size: 1.55em;
@@ -37,15 +36,13 @@ article * {max-width: 400px}
 
 /* List */
 li { list-style: none}
+ul { padding-left: 0; }
 article li:before {content: "⇢"; margin-right: 5px;}
 
 /* Links */
 article a { color: #FF0066!important}
 
 /* Specific homepage stuff */
-#home ul {
-    padding-left: 0;
-}
 #home li a {
     max-width: 300px;
     display: inline-block;
@@ -188,16 +185,21 @@ hr { visibility: hidden; }
     position: relative;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0){
-    article h1, article h2 {
-        display: block;
-    }
-}
-
 article .postimg {
     border: 5px solid #261C21;
     display: block;
+    max-width: 390px;
     margin: auto;
     margin-bottom: 30px;
     margin-top: 30px;
+}
+
+article .postimg+em {
+    display: block;
+    margin-top: -30px;
+    text-align: center;
+}
+
+article strong {
+    border-bottom: 3px solid black;
 }
