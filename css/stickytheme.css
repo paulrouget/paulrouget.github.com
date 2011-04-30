@@ -143,12 +143,9 @@ article footer {
     padding-right: 4px;
 }
 
-header { position: fixed; top: 10px; right: 10px; }
-header > a { opacity: 0.7;  -moz-transition: 0.3s; -webkit-transition: 0.3s; color: #FAE50B!important; text-decoration: none; font-size: 25px; display: block;}
-header > a > * { vertical-align: middle;}
-header > a > span {max-width: 0px; overflow: hidden; display: inline-block; -moz-transition: 0.3s;  -webkit-transition: 0.3s; margin-left: 15px;}
+header { position: fixed; top: 80px; right: 10px; }
+header > a { opacity: .5;  -moz-transition: 0.3s; -webkit-transition: 0.3s; display: block}
 header > a:hover { opacity: 1;}
-header > a:hover > span { max-width: 300px;}
 
 .highlight {
     background-color: #261C21!important;
