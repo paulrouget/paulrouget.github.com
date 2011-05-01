@@ -67,9 +67,7 @@ article a { color: #FF0066!important}
 article h1, article h2 {
     background-color: #261C21;
     color: #FAE50B;
-    outline-style: solid;
-    outline-width: 0.2em;
-    outline-color: #261C21;
+    border: 0.2em solid #261C21;
 }
 
 article footer a * {
