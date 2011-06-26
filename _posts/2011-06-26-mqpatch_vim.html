@@ -3,10 +3,11 @@ layout: post
 title: "mq-patch &amp; vim"
 permalink: e/mqpatch_vim
 comments: true
+mozilla: true
 ---
 
 <h1>mq-patch &amp; Vim</h1>
-
+<em>Update: I forgot about the "len > 0" test. Thx @padenot for the quick fix.</em>
 <p>If you use the <a href="https://developer.mozilla.org/en/Mercurial_queues">Mercurial Queues</a> (and you should!)
 and <a href="http://vim.org">Vim</a>, you may want to know which patch you are working on.</p>
 <p>Here is how I managed to put the name of the current patch in my status bar:<p>
@@ -17,7 +18,9 @@ let g:mqStatusPath = getcwd() . "/.hg/patches/status"
 function! GetCurrentMqPatch()
     if filereadable(g:mqStatusPath)
       let patchesList = readfile(g:mqStatusPath)
-      return split(patchesList[-1], ':')[1]
+      if len(patchesList) > 0
+        return split(patchesList[-1], ':')[1]
+      endif
     endif
 endfunction
 
@@ -37,7 +40,9 @@ let g:mqStatusPath = getcwd() . "/.hg/patches/status"
 function! GetCurrentMqPatch()
     if filereadable(g:mqStatusPath)
       let patchesList = readfile(g:mqStatusPath)
-      return split(patchesList[-1], ':')[1]
+      if len(patchesList) > 0
+        return split(patchesList[-1], ':')[1]
+      endif
     endif
     return ""
 endfunction
