@@ -1,0 +1,91 @@
+---
+layout: post
+title: "mq-patch &amp; vim"
+permalink: e/mqpatch_vim
+comments: true
+---
+
+<h1>mq-patch &amp; Vim</h1>
+
+<p>If you use the <a href="https://developer.mozilla.org/en/Mercurial_queues">Mercurial Queues</a> (and you should!)
+and <a href="http://vim.org">Vim</a>, you may want to know witch patch you are working on.</p>
+<p>Here is how I managed to put the name of the current patch in my status bar:<p>
+
+{% highlight vim %}
+let g:mqStatusPath = getcwd() . "/.hg/patches/status"
+
+function! GetCurrentMqPatch()
+    if filereadable(g:mqStatusPath)
+      let patchesList = readfile(g:mqStatusPath)
+      return split(patchesList[-1], ':')[1]
+    endif
+endfunction
+
+set statusline=%{GetCurrentMqPatch()}\ %F%m%r%h%w
+{% endhighlight %}
+
+<em>(You have to start vim in your source directly)</em>
+
+<p>Screenshot:</p>
+<img class="frame" style="margin-left: -375px" src="/assets/posts/mqpatch_vim.png">
+
+<p>Here is the full code for my status bar (part of this code is from <a href="http://www.reddit.com/r/vim/comments/gexi6/a_smarter_statusline_code_in_comments/">this guy</a>):</p>
+
+{% highlight vim %}
+let g:mqStatusPath = getcwd() . "/.hg/patches/status"
+
+function! GetCurrentMqPatch()
+    if filereadable(g:mqStatusPath)
+      let patchesList = readfile(g:mqStatusPath)
+      return split(patchesList[-1], ':')[1]
+    endif
+    return ""
+endfunction
+
+"set statusline=%{GetCurrentMqPatch()}\ %F%m%r%h%w
+
+function! MyStatusLine(mode)
+    let statusline=""
+
+    if filereadable(g:mqStatusPath)
+      let statusline .= "%#PatchColor#" . GetCurrentMqPatch() . "%*"
+    endif
+
+    if a:mode == 'Enter'
+        let statusline.="%#StatColor#"
+    endif
+    let statusline.="\(%n\)\ %f\ "
+    if a:mode == 'Enter'
+        let statusline.="%*"
+    endif
+    let statusline.="%#Modified#%m"
+    if a:mode == 'Leave'
+        let statusline.="%*%r"
+    elseif a:mode == 'Enter'
+        let statusline.="%r%*"
+    endif
+    let statusline .= "\ (%l/%L,\ %c)\ %P%=%h%w\ %y\ [%{&encoding}:%{&fileformat}]\ \ "
+    return statusline
+endfunction
+
+au WinEnter * setlocal statusline=%!MyStatusLine('Enter')
+au WinLeave * setlocal statusline=%!MyStatusLine('Leave')
+set statusline=%!MyStatusLine('Enter')
+
+function! InsertStatuslineColor(mode)
+  if a:mode == 'i'
+    hi StatColor guibg=orange ctermbg=lightred
+  elseif a:mode == 'r'
+    hi StatColor guibg=#e454ba ctermbg=magenta
+  elseif a:mode == 'v'
+    hi StatColor guibg=#e454ba ctermbg=magenta
+  else
+    hi StatColor guibg=red ctermbg=red
+  endif
+endfunction 
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
+{% endhighlight %}
+
+
