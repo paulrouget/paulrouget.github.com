@@ -6,6 +6,12 @@ permalink: e/converttohtml5video
 
 <h1>Converting to WebM, OGG/Theora and MP4.</h1>
 
+<p><strong>UPDATE:</strong> Now that ffmpeg 0.6 is everywhere, and the preset are good enough, the easiest way to convert
+a video to WebM is: </p>
+{% highlight sh %}
+$ ffmpeg -i foo.avi foo.webm
+{% endhighlight %}
+<p>Of course, if you want to tweak the transcode options, RTFM ;)<br> ---</p>
 
 <p>If you want to use the &lt;video&gt; tag, you need to encode your video to 3 formats:</p>
 
