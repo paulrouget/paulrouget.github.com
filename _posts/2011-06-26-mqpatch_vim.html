@@ -7,13 +7,17 @@ mozilla: true
 ---
 
 <h1>mq-patch &amp; Vim</h1>
-<em>Update: I forgot about the "len > 0" test. Thx @padenot for the quick fix.</em>
+
+<p><em>Update: I forgot about the "len > 0" test. Thx @padenot for the quick fix.</em></p>
+<p><em>Update2: Thanks to @hoaproject, now it works even if Vim is not open in the Root directory.</em></p>
+
 <p>If you use the <a href="https://developer.mozilla.org/en/Mercurial_queues">Mercurial Queues</a> (and you should!)
 and <a href="http://vim.org">Vim</a>, you may want to know which patch you are working on.</p>
 <p>Here is how I managed to put the name of the current patch in my status bar:<p>
 
 {% highlight vim %}
-let g:mqStatusPath = getcwd() . "/.hg/patches/status"
+let g:mqStatusPath = substitute(system("hg root --cwd " .
+                     getcwd()), "\n", "", "g") . "/.hg/patches/status"
 
 function! GetCurrentMqPatch()
     if filereadable(g:mqStatusPath)
@@ -27,15 +31,14 @@ endfunction
 set statusline=%{GetCurrentMqPatch()}\ %F%m%r%h%w
 {% endhighlight %}
 
-<em>(You have to start vim in your source directly)</em>
-
 <p>Screenshot:</p>
 <img class="frame" style="margin-left: -375px" src="/assets/posts/mqpatch_vim.png">
 
 <p>Here is the full code for my status bar (part of this code is from <a href="http://www.reddit.com/r/vim/comments/gexi6/a_smarter_statusline_code_in_comments/">this guy</a>):</p>
 
 {% highlight vim %}
-let g:mqStatusPath = getcwd() . "/.hg/patches/status"
+let g:mqStatusPath = substitute(system("hg root --cwd " .
+                     getcwd()), "\n", "", "g") . "/.hg/patches/status"
 
 function! GetCurrentMqPatch()
     if filereadable(g:mqStatusPath)
