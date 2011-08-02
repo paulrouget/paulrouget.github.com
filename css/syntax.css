@@ -1,5 +1,5 @@
 .hll { background-color: #333333 }
-code {color: #FFF}
+code {color: #FFF; padding: 3px;}
 .highlight, code {background-color: #261C21}
 .c { color: #008800; font-style: italic; background-color: #0f140f } /* Comment */
 .err { color: #ffffff } /* Error */
