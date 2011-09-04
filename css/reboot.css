@@ -3,7 +3,7 @@ body {
 
 aside {
   position: fixed;
-  top: 40%; left: 10px;
+  bottom: 0; left: 10px;
   vertical-align: top;
 }
 
@@ -86,6 +86,7 @@ pre, code, tt { font: 1em monospace; line-height: 1.5; }
 tt { display: block; margin: 1.625em 0; }
 hr { margin-bottom:1.625em; }
 /* Specific homepage stuff */
+#home h1 { padding-left: 170px; }
 #home li a {
   vertical-align: top;
   display: inline-block;
@@ -115,6 +116,7 @@ hr { margin-bottom:1.625em; }
     bottom: 0; left: 10px;
     vertical-align: top;
   }
+  #home h1 { padding-left: 40px; }
   #home li time {
     display: none;
   }

@@ -16,9 +16,6 @@
 <article>
     {{ content }}
 
-    <footer>
-    </footer>
-
     <div id="meta">
         <span id="date">{{ page.date | date_to_string}} - </span>
         <a onclick="window.open('http://twitter.com/share?text={{page.title}}&via=paulrouget&url=http%3A%2F%2Fpaulrouget.com%2F{{page.url | xml_escape}}','','width=400,height=300,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;" href="http://twitter.com/share?text={{page.title}}&via=paulrouget&url=http%3A%2F%2Fpaulrouget.com%2F{{page.url | xml_escape}}" id="twitter" title="tweet this" target="_blank">
@@ -41,7 +38,7 @@
 <aside>
   <ul>
     <li><a href="http://twitter.com/paulrouget">@paulrouget</a>
-    <li><a href="http://paulrouget.com/index.xml">RSS</a>
+    <li><a href="http://paulrouget.com">blog</a>, <a href="http://paulrouget.com/index.xml">RSS</a>
   </ul>
 </aside>
 
