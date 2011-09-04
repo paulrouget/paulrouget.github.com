@@ -34,12 +34,6 @@ header a:hover {
 }
 #rss-button svg { margin: 0px 0 2px 0; width: 10px; height: 10px; vertical-align: bottom;}
 #rss-button svg * { fill: #FAE50B}
-#rss-button {
-    background-image: url(/assets/rss.svg);
-    background-repeat: no-repeat;
-    background-size: 10px 10px;
-    background-position: 1px 1px;
-}
 article {
     display: block;
     width: 400px;

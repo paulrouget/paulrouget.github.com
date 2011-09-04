@@ -4,25 +4,18 @@ title: Paul Rouget
 ---
 <!DOCTYPE html>
 
+<meta name="description" content="Paul Rouget's Blog">
+<meta name="author" content="Paul Rouget">
+
 <meta charset="utf8">
-<link href='http://fonts.googleapis.com/css?family=Cantarell:regular,bold' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="alternate" type="application/atom+xml" href="/index.xml">
 
-<link rel="stylesheet" href="/css/stickytheme.css">
+<link rel="stylesheet" href="/css/reboot.css">
 <link rel="stylesheet" href="/css/syntax.css">
+
 <title>Paul Rouget</title>
-
-<header>
-    <a href="http://twitter.com/paulrouget" class="twitter-follow-button" data-button="grey" data-width="300px" data-text-color="#FAE50B" data-link-color="#FF0066">Follow @paulrouget</a><script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
-    <span id="rss-button">
-        <svg viewbox="30 30 190 190">
-            <circle cx="68" cy="189" r="24"/>
-            <path d="M160 213h-34a82 82 0 0 0 -82 -82v-34a116 116 0 0 1 116 116z"/>
-            <path d="M184 213A140 140 0 0 0 44 73 V 38a175 175 0 0 1 175 175z"/>
-        </svg>
-        Subscribe <a href="http://paulrouget.com/index.xml"><span>RSS</span></a></span>
-</header>
-
 
 <article id="home">
 
@@ -30,12 +23,6 @@ title: Paul Rouget
     I write code. I give talks.
     I <a href="http://twitter.com/paulrouget">tweet</a>.
     </h1>
-
-    <footer>
-        <a href="http://paulrouget.com">
-            <img src="/assets/twitter_avatar.jpg"> Paul Rouget
-        </a>
-    </footer>
 
     <ul>
         {% for post in site.posts limit:100 %}
@@ -45,6 +32,13 @@ title: Paul Rouget
         {% endfor %}
     </ul>
 </article>
+
+<aside>
+  <ul>
+    <li><a href="http://twitter.com/paulrouget">@paulrouget</a>
+    <li><a href="http://paulrouget.com/index.xml">RSS</a>
+  </ul>
+</aside>
 
 
 
