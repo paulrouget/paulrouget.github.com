@@ -1,24 +1,21 @@
-body {
-}
-
-aside {
-  position: fixed;
-  bottom: 0; left: 10px;
-  vertical-align: top;
-}
-
 img {
   max-width: 600px;
 }
 
-aside ul {
-  background-image: url(/assets/twitter_avatar.jpg);
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  vertical-align: top;
-  display: inline-block;
-  list-style: none;
-  padding-left: 60px;
+aside {
+  width: 250px;
+  height: 60px;
+  position: fixed;
+  bottom: 75px; left: 10px;
+}
+aside img {
+  width: 50px;
+  margin-right: 10px;
+}
+aside p {
+  color: #ccc;
+  font-size: 14px;
+  margin: 0;
 }
 
 .float-right { float: right; margin: 8px;}
@@ -47,7 +44,7 @@ body {
   font-weight:normal;
 }
 
-p {
+article p {
   color:#111;
   text-align: justify;
   font-weight:300;
@@ -105,6 +102,10 @@ hr { margin-bottom:1.625em; }
   color: #aaa;
 }
 #home li {margin-bottom: 10px; list-style: none;}
+#home aside {
+  top: 0; right: 0;
+  bottom: auto; left: auto;
+}
 
 
 @media (max-width: 1000px) {
