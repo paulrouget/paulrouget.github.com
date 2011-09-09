@@ -25,6 +25,7 @@ aside p {
 #rss-button svg * { fill: #000}
 
 body > article {
+  display: block;
   max-width: 600px;
 
   margin: auto;
