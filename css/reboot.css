@@ -110,14 +110,11 @@ hr { margin-bottom:1.625em; }
 }
 
 
-@media (max-width: 950px) {
+@media (max-width: 900px) {
   aside {
     position: static;
-    display: block;
     margin: auto;
-    max-width: 600px;
     bottom: 0; left: 10px;
-    vertical-align: top;
   }
   #home h1 { padding-left: 40px; }
   #home li time {
