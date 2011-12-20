@@ -1,0 +1,115 @@
+---
+layout: post
+title: "Writing code - Light or dark color scheme?"
+permalink: e/colorssurvey
+mozilla: true
+comments: true
+---
+
+<h1>Light or dark color scheme?</h1>
+
+<p>tl;dr: <em>dark background: 63%, light background: 37%</em></p>
+
+<p>So we are working on a Code Editor for the Firefox DevTools (to edit your CSS files,
+or to write some JavaScript code). These days, I have been working on implementing the design of this
+tool. In Firefox 11, it will come with a light color scheme.</p>
+<img src="http://i.imgur.com/ur555.png" alt="Style Editor mockup">
+<p>In the future, we will probably add a way to choose your own color scheme. Solarized, monokai, desert, ...</p>
+<p>But I was thinking <q>why a light theme by default?</q>? Are we sure that most of the people people
+prefer having a light theme? So "OMG SURVEY!", got ~1600 answers in 2 hours, which is quite
+amazing, and here are the results:</p>
+
+<dl><canvas><pre>
+White on black  (dark background) 1015 63%
+Black on white (light background) 594 37%
+</pre></canvas></dl>
+
+<p>Conclusion? <em>Apparently, people prefer dark themes.</em>
+I am not saying we will use a dark theme by default, but for sure,
+the option has to be present.
+So not sure what we are going to do now, we need to talk with our UX team.
+But this will be easier to take a decision with actual data :)</p>
+
+<p>Thank you all for answering the survey :)</p>
+
+<p>PS: <em>I think it's just awesome that I can setup such survey in a couple of minutes,
+publish it, and get such strong results 2 hours after. Wow!</em></p>
+
+<script>
+  var values = {
+    dark: {value: 1015, label: "White on black  (dark background)", color: "#555"},
+    light: {value: 594, label: "Black on white (light background)", color: "#DDD"},
+  };
+
+  var total = 0;
+  for (var e in values) {
+    total += values[e].value;
+  }
+  console.log(total);
+
+  function drawPi(canvas, width, height) {
+    canvas.width = width;
+    canvas.height = height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = "2";
+
+    var lastA = -Math.PI / 2;
+    var dl = document.querySelector("dl");
+    for (var e in values) {
+
+      ctx.fillStyle = values[e].color;
+
+      var a = values[e].value / total;
+      a *= 2 * Math.PI;
+      a += lastA;
+
+      var dt = document.createElement("dt");
+      dt.innerHTML = values[e].label
+      var dd = document.createElement("dd");
+      dd.innerHTML = Math.round(100 * (values[e].value / total)) + "% (" + values[e].value + ")";
+
+      dl.appendChild(dt);
+      dl.appendChild(dd);
+
+      dt.style.borderColor = ctx.fillStyle;
+
+
+      ctx.beginPath();
+      ctx.moveTo(width / 2, height / 2);
+      ctx.arc(width / 2, height / 2, width / 2 * 0.9, lastA, a, false);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      lastA = a;
+    }
+
+    ctx.beginPath();
+    ctx.arc(width / 2, height / 2, width / 2 * 0.9, 0, Math.PI * 2, false);
+    ctx.closePath();
+    ctx.stroke();
+  }
+
+  drawPi(document.querySelector("canvas"), 150, 150);
+
+</script>
+
+<style>
+  dl {
+    padding: 10px;
+    background-color: #261C21;
+    color: white;
+  }
+  dt {
+    border-style: solid;
+    border-width: 0 0 0 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+  dd {
+    display: inline-block;
+    width: 30%;
+  }
+</style>
+
