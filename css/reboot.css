@@ -112,7 +112,7 @@ hr { margin-bottom:1.625em; }
     margin: auto;
 }
 
-#comments {opacity: 0; -moz-transition: 0.2s; -webkit-transition: 0.2s;}
+#comments {opacity: 0;}
 #comments.showme {opacity: 1;}
 
 #comments {
