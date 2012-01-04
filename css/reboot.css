@@ -4,8 +4,8 @@ img {
 
 aside {
   position: fixed;
-  bottom: 0; left: 0; width: 100%;
   display: block;
+  bottom: 0; left: 0; width: 100%;
   background: black;
   color: #fff;
   font-size: 12px; line-height: 18px;
@@ -35,6 +35,7 @@ body {
   font-variant: normal;
   font-weight:300;
   margin-bottom: 100px;
+  position: relative;
 }
 
 article p {
@@ -98,9 +99,10 @@ hr { margin-bottom:1.625em; }
 }
 
 
-@media (max-width: 1050px) {
+@media (max-width: 800px) {
   #home h1 { padding-left: 40px; }
   #home li time { display: none; }
+  aside { position: absolute; }
 }
 
 
