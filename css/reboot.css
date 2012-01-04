@@ -112,8 +112,8 @@ hr { margin-bottom:1.625em; }
     margin: auto;
 }
 
-#comments {display: none}
-#comments.showme {display: block}
+#comments {opacity: 0; -moz-transition: 0.2s; -webkit-transition: 0.2s;}
+#comments.showme {opacity: 1;}
 
 #comments {
     max-width: 600px;
