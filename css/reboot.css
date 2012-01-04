@@ -99,7 +99,7 @@ hr { margin-bottom:1.625em; }
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   #home h1 { padding-left: 40px; }
   #home li time { display: none; }
   aside { position: static; }
