@@ -112,17 +112,14 @@ hr { margin-bottom:1.625em; }
     margin: auto;
 }
 
-#comments {opacity: 0;}
-#comments.showme {opacity: 1;}
-
 #comments {
+  opacity: 0;
     max-width: 600px;
     margin: auto;
-    padding: 40px;
-    padding-bottom: 20px;
-    margin-top: 50px;
+    padding: 0 40px;
     position: relative;
 }
+#comments.showme {opacity: 1;}
 
 .quote {
   padding: 20px 40px 20px 60px;
