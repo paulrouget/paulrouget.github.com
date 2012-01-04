@@ -116,7 +116,7 @@ hr { margin-bottom:1.625em; }
   opacity: 0;
     max-width: 600px;
     margin: auto;
-    padding: 0 40px;
+    padding: 20px 40px 0;
     position: relative;
 }
 #comments.showme {opacity: 1;}
