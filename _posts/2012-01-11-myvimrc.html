@@ -1,0 +1,155 @@
+---
+layout: post
+title: "My .vimrc"
+permalink: e/myvimrc
+comments: true
+---
+
+<h1>my .vimrc</h1>
+
+<p>Sounds like some people are insterested in my vimrc.
+This is the current version of it. Pretty simple these days.</p>
+<p>(sorry, it's not commented. Use <code>:help [cmd]</code> if
+you don't know a command.)</p>
+
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #d0d0d0; background-color: #000000; }
+.lnr { color: #bcbcbc; background-color: #1c1c1c; }
+.Normal { color: #d0d0d0; }
+.SpecialChar { color: #d7005f; font-weight: bold; }
+.Identifier { color: #ff8700; font-weight: bold; }
+.Number { color: #af5fff; }
+.Special { color: #5fd7ff; background-color: #080808; }
+.Delimiter { color: #626262; }
+.Type { color: #5fd7ff; }
+.PreProc { color: #87ff00; }
+.String { color: #afaf87; }
+.Operator { color: #d7005f; }
+.Statement { color: #d7005f; font-weight: bold; }
+.Comment { color: #5f5f5f; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr">  1 </span><span class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; GLOBAL</span>
+<span class="lnr">  2 </span><span class="Statement">let</span> mapleader<span class="Operator">=</span><span class="String">&quot;,&quot;</span>
+<span class="lnr">  3 </span><span class="Statement">colorscheme</span> molokai
+<span class="lnr">  4 </span><span class="Statement">set</span> <span class="PreProc">gfn</span>=terminus
+<span class="lnr">  5 </span><span class="Statement">set</span> <span class="PreProc">go</span>=
+<span class="lnr">  6 </span>
+<span class="lnr">  7 </span><span class="Statement">syntax</span> <span class="Type">on</span>
+<span class="lnr">  8 </span><span class="Statement">filetype</span> <span class="Type">plugin</span> <span class="Type">indent</span> <span class="Type">on</span>
+<span class="lnr">  9 </span><span class="Statement">set</span> <span class="PreProc">encoding</span>=utf-8
+<span class="lnr"> 10 </span><span class="Statement">set</span> <span class="PreProc">hidden</span>
+<span class="lnr"> 11 </span><span class="Statement">set</span> <span class="PreProc">showcmd</span>
+<span class="lnr"> 12 </span><span class="Statement">set</span> <span class="PreProc">nowrap</span>
+<span class="lnr"> 13 </span><span class="Statement">set</span> <span class="PreProc">backspace</span>=indent<span class="Statement">,</span>eol<span class="Statement">,</span>start
+<span class="lnr"> 14 </span><span class="Statement">set</span> <span class="PreProc">autoindent</span>
+<span class="lnr"> 15 </span><span class="Statement">set</span> <span class="PreProc">copyindent</span>
+<span class="lnr"> 16 </span><span class="Statement">set</span> <span class="PreProc">number</span>
+<span class="lnr"> 17 </span><span class="Statement">set</span> <span class="PreProc">shiftround</span>
+<span class="lnr"> 18 </span><span class="Statement">set</span> <span class="PreProc">ignorecase</span>
+<span class="lnr"> 19 </span><span class="Statement">set</span> <span class="PreProc">smartcase</span>
+<span class="lnr"> 20 </span><span class="Statement">set</span> <span class="PreProc">hlsearch</span>
+<span class="lnr"> 21 </span><span class="Statement">set</span> <span class="PreProc">incsearch</span>
+<span class="lnr"> 22 </span><span class="Statement">set</span> <span class="PreProc">history</span>=1000
+<span class="lnr"> 23 </span><span class="Statement">set</span> <span class="PreProc">undolevels</span>=1000
+<span class="lnr"> 24 </span><span class="Statement">set</span> <span class="PreProc">wildignore</span>=*.swp<span class="Statement">,</span>*.bak
+<span class="lnr"> 25 </span><span class="Statement">set</span> <span class="PreProc">title</span>
+<span class="lnr"> 26 </span><span class="Statement">set</span> <span class="PreProc">visualbell</span>
+<span class="lnr"> 27 </span><span class="Statement">set</span> <span class="PreProc">noerrorbells</span>
+<span class="lnr"> 28 </span><span class="Statement">set</span> <span class="PreProc">list</span>
+<span class="lnr"> 29 </span><span class="Statement">set</span> <span class="PreProc">listchars</span>=tab<span class="Statement">:</span>&gt;.<span class="Statement">,</span>trail<span class="Statement">:</span>.<span class="Statement">,</span>extends<span class="Statement">:</span>#<span class="Statement">,</span>nbsp<span class="Statement">:</span>.
+<span class="lnr"> 30 </span><span class="Statement">set</span> <span class="PreProc">ttyfast</span>
+<span class="lnr"> 31 </span><span class="Statement">set</span> <span class="PreProc">mouse</span>=
+<span class="lnr"> 32 </span><span class="Statement">set</span> <span class="PreProc">nocompatible</span>
+<span class="lnr"> 33 </span><span class="Statement">set</span> <span class="PreProc">backup</span>
+<span class="lnr"> 34 </span><span class="Statement">set</span> <span class="PreProc">backupdir</span>=~/.vim_backup
+<span class="lnr"> 35 </span><span class="Statement">set</span> <span class="PreProc">noswapfile</span>
+<span class="lnr"> 36 </span><span class="Statement">set</span> <span class="PreProc">fileformats</span>=unix<span class="Statement">,</span>dos<span class="Statement">,</span>mac
+<span class="lnr"> 37 </span><span class="Statement">set</span> <span class="PreProc">laststatus</span>=2
+<span class="lnr"> 38 </span><span class="Statement">set</span> <span class="PreProc">expandtab</span>
+<span class="lnr"> 39 </span><span class="Statement">set</span> <span class="PreProc">softtabstop</span>=2 <span class="PreProc">tabstop</span>=2 <span class="PreProc">shiftwidth</span>=2
+<span class="lnr"> 40 </span><span class="Statement">set</span> <span class="PreProc">ruler</span>
+<span class="lnr"> 41 </span>
+<span class="lnr"> 42 </span><span class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; KEYBINDINGS</span>
+<span class="lnr"> 43 </span>
+<span class="lnr"> 44 </span><span class="Statement">map</span> cc &lt;leader&gt;c<span class="Delimiter">&lt;</span><span class="Special">space</span><span class="Delimiter">&gt;</span>
+<span class="lnr"> 45 </span><span class="Statement">map</span>  # {v}! par 72<span class="Delimiter">&lt;</span><span class="Special">CR</span><span class="Delimiter">&gt;</span>
+<span class="lnr"> 46 </span><span class="Statement">map</span>  &amp; {v}! par 72j<span class="Delimiter">&lt;</span><span class="Special">CR</span><span class="Delimiter">&gt;</span>
+<span class="lnr"> 47 </span><span class="Statement">map</span>  <span class="Delimiter">&lt;</span><span class="Special">F6</span><span class="Delimiter">&gt;</span> :setlocal spell! spelllang=en<span class="Delimiter">&lt;</span><span class="Special">CR</span><span class="Delimiter">&gt;</span>
+<span class="lnr"> 48 </span><span class="Statement">map</span>  <span class="Delimiter">&lt;</span><span class="Special">F12</span><span class="Delimiter">&gt;</span> :set invhls<span class="Delimiter">&lt;</span><span class="Special">CR</span><span class="Delimiter">&gt;</span>
+<span class="lnr"> 49 </span><span class="Statement">cmap</span> <span class="Delimiter">&lt;</span><span class="Special">C-g</span><span class="Delimiter">&gt;</span> <span class="Delimiter">&lt;</span><span class="Special">C-u</span><span class="Delimiter">&gt;&lt;</span><span class="Special">ESC</span><span class="Delimiter">&gt;</span>
+<span class="lnr"> 50 </span>
+<span class="lnr"> 51 </span><span class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; PLUGINS</span>
+<span class="lnr"> 52 </span>
+<span class="lnr"> 53 </span><span class="Comment">&quot;</span> <span class="PreProc">Installed:</span>
+<span class="lnr"> 54 </span><span class="Comment">&quot;   NERD_Commenter</span>
+<span class="lnr"> 55 </span><span class="Comment">&quot;   CtrlP</span>
+<span class="lnr"> 56 </span><span class="Comment">&quot;   Gundo</span>
+<span class="lnr"> 57 </span><span class="Comment">&quot;   matchit</span>
+<span class="lnr"> 58 </span>
+<span class="lnr"> 59 </span><span class="Statement">nmap</span> <span class="Delimiter">&lt;</span><span class="Special">c-u</span><span class="Delimiter">&gt;</span> :GundoToggle<span class="Delimiter">&lt;</span><span class="Special">cr</span><span class="Delimiter">&gt;</span>
+<span class="lnr"> 60 </span>
+<span class="lnr"> 61 </span><span class="Statement">let</span> g:ctrlp_map <span class="Operator">=</span> <span class="String">'&lt;c-o&gt;'</span>
+<span class="lnr"> 62 </span><span class="Statement">let</span> g:ctrlp_working_path_mode <span class="Operator">=</span> <span class="Number">0</span>
+<span class="lnr"> 63 </span>
+<span class="lnr"> 64 </span><span class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; FILES SPECIFIC</span>
+<span class="lnr"> 65 </span>
+<span class="lnr"> 66 </span><span class="Statement">au</span> <span class="Type">BufRead</span> mutt-*        <span class="Statement">set</span> <span class="PreProc">ft</span>=mail
+<span class="lnr"> 67 </span><span class="Statement">au</span> <span class="Type">BufRead</span> mutt-*        <span class="Statement">set</span> <span class="PreProc">invhls</span>
+<span class="lnr"> 68 </span><span class="Statement">au</span> <span class="Type">bufNewFile</span> *.html <span class="Number">0</span>r ~/<span class="Operator">.</span><span class="Statement">vim</span>/templates/html<span class="Operator">.</span>txt
+<span class="lnr"> 69 </span><span class="Statement">au</span> <span class="Type">BufRead</span>,<span class="Type">BufNewFile</span> *.jsm <span class="Statement">setfiletype</span> javascript
+<span class="lnr"> 70 </span><span class="Statement">au</span> <span class="Type">BufRead</span>,<span class="Type">BufNewFile</span> *.xul <span class="Statement">setfiletype</span> xml
+<span class="lnr"> 71 </span>
+<span class="lnr"> 72 </span><span class="Statement">autocmd</span> <span class="Type">filetype</span> html,xml <span class="Statement">set</span> <span class="PreProc">listchars</span>-=tab<span class="Statement">:</span>&gt;.
+<span class="lnr"> 73 </span>
+<span class="lnr"> 74 </span><span class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; STATUSBAR</span>
+<span class="lnr"> 75 </span>
+<span class="lnr"> 76 </span><span class="Statement">hi</span> StatColor <span class="Type">guibg</span>=<span class="Number">#95e454</span> <span class="Type">guifg</span>=black <span class="Type">ctermbg</span>=lightgreen <span class="Type">ctermfg</span>=black
+<span class="lnr"> 77 </span><span class="Statement">hi</span> Modified <span class="Type">guibg</span>=orange <span class="Type">guifg</span>=black <span class="Type">ctermbg</span>=lightred <span class="Type">ctermfg</span>=black
+<span class="lnr"> 78 </span><span class="Statement">hi</span> PatchColor <span class="Type">ctermfg</span>=<span class="Number">255</span> <span class="Type">ctermbg</span>=<span class="Number">161</span> <span class="Type">guifg</span>=black <span class="Type">guibg</span>=<span class="Number">#FF0066</span>
+<span class="lnr"> 79 </span>
+<span class="lnr"> 80 </span><span class="Statement">function</span>! MyStatusLine<span class="Delimiter">(</span>mode<span class="Delimiter">)</span>
+<span class="lnr"> 81 </span>    <span class="Statement">let</span> statusline<span class="Operator">=</span><span class="String">&quot;&quot;</span>
+<span class="lnr"> 82 </span>
+<span class="lnr"> 83 </span>    <span class="Statement">if</span> <span class="Identifier">a:mode</span> <span class="Operator">==</span> <span class="String">'Enter'</span>
+<span class="lnr"> 84 </span>        <span class="Statement">let</span> statusline<span class="Operator">.=</span><span class="String">&quot;%#StatColor#&quot;</span>
+<span class="lnr"> 85 </span>    <span class="Statement">endif</span>
+<span class="lnr"> 86 </span>    <span class="Statement">let</span> statusline<span class="Operator">.=</span><span class="String">&quot;</span><span class="SpecialChar">\(</span><span class="String">%n</span><span class="SpecialChar">\)</span><span class="String">\ %f\ &quot;</span>
+<span class="lnr"> 87 </span>    <span class="Statement">if</span> <span class="Identifier">a:mode</span> <span class="Operator">==</span> <span class="String">'Enter'</span>
+<span class="lnr"> 88 </span>        <span class="Statement">let</span> statusline<span class="Operator">.=</span><span class="String">&quot;%*&quot;</span>
+<span class="lnr"> 89 </span>    <span class="Statement">endif</span>
+<span class="lnr"> 90 </span>    <span class="Statement">let</span> statusline<span class="Operator">.=</span><span class="String">&quot;%#Modified#%m&quot;</span>
+<span class="lnr"> 91 </span>    <span class="Statement">if</span> <span class="Identifier">a:mode</span> <span class="Operator">==</span> <span class="String">'Leave'</span>
+<span class="lnr"> 92 </span>        <span class="Statement">let</span> statusline<span class="Operator">.=</span><span class="String">&quot;%*%r&quot;</span>
+<span class="lnr"> 93 </span>    <span class="Statement">elseif</span> <span class="Identifier">a:mode</span> <span class="Operator">==</span> <span class="String">'Enter'</span>
+<span class="lnr"> 94 </span>        <span class="Statement">let</span> statusline<span class="Operator">.=</span><span class="String">&quot;%r%*&quot;</span>
+<span class="lnr"> 95 </span>    <span class="Statement">endif</span>
+<span class="lnr"> 96 </span>    <span class="Statement">let</span> statusline <span class="Operator">.=</span> <span class="String">&quot;\ (%l/%L,\ %c)\ %P%=%h%w\ %y\ [%{&amp;encoding}:%{&amp;fileformat}]\ \ &quot;</span>
+<span class="lnr"> 97 </span>    <span class="Statement">return</span> statusline
+<span class="lnr"> 98 </span><span class="Statement">endfunction</span>
+<span class="lnr"> 99 </span>
+<span class="lnr">100 </span><span class="Statement">au</span> <span class="Type">WinEnter</span> * <span class="Statement">setlocal</span> <span class="PreProc">statusline</span>=%!MyStatusLine('Enter')
+<span class="lnr">101 </span><span class="Statement">au</span> <span class="Type">WinLeave</span> * <span class="Statement">setlocal</span> <span class="PreProc">statusline</span>=%!MyStatusLine('Leave')
+<span class="lnr">102 </span><span class="Statement">set</span> <span class="PreProc">statusline</span>=%!MyStatusLine('Enter')
+<span class="lnr">103 </span>
+<span class="lnr">104 </span><span class="Statement">function</span>! InsertStatuslineColor<span class="Delimiter">(</span>mode<span class="Delimiter">)</span>
+<span class="lnr">105 </span>  <span class="Statement">if</span> <span class="Identifier">a:mode</span> <span class="Operator">==</span> <span class="String">'i'</span>
+<span class="lnr">106 </span>    <span class="Statement">hi</span> StatColor <span class="Type">guibg</span>=orange <span class="Type">ctermbg</span>=lightred
+<span class="lnr">107 </span>  <span class="Statement">elseif</span> <span class="Identifier">a:mode</span> <span class="Operator">==</span> <span class="String">'r'</span>
+<span class="lnr">108 </span>    <span class="Statement">hi</span> StatColor <span class="Type">guibg</span>=<span class="Number">#e454ba</span> <span class="Type">ctermbg</span>=magenta
+<span class="lnr">109 </span>  <span class="Statement">elseif</span> <span class="Identifier">a:mode</span> <span class="Operator">==</span> <span class="String">'v'</span>
+<span class="lnr">110 </span>    <span class="Statement">hi</span> StatColor <span class="Type">guibg</span>=<span class="Number">#e454ba</span> <span class="Type">ctermbg</span>=magenta
+<span class="lnr">111 </span>  <span class="Statement">else</span>
+<span class="lnr">112 </span>    <span class="Statement">hi</span> StatColor <span class="Type">guibg</span>=red <span class="Type">ctermbg</span>=red
+<span class="lnr">113 </span>  <span class="Statement">endif</span>
+<span class="lnr">114 </span><span class="Statement">endfunction</span>
+<span class="lnr">115 </span>
+<span class="lnr">116 </span><span class="Statement">au</span> <span class="Type">InsertEnter</span> * <span class="Statement">call</span> <span class="Normal">InsertStatuslineColor</span><span class="Delimiter">(</span>v:insertmode<span class="Delimiter">)</span>
+<span class="lnr">117 </span><span class="Statement">au</span> <span class="Type">InsertLeave</span> * <span class="Statement">hi</span> StatColor <span class="Type">guibg</span>=<span class="Number">#95e454</span> <span class="Type">guifg</span>=black <span class="Type">ctermbg</span>=lightgreen <span class="Type">ctermfg</span>=black
+</pre>
+
+
