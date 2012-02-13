@@ -149,3 +149,7 @@ article .postimg {
     margin-bottom: 30px;
     margin-top: 30px;
 }
+
+.noborder {
+  border: none!important;
+}
