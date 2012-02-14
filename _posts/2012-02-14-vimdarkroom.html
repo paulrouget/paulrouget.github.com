@@ -1,0 +1,43 @@
+---
+layout: post
+title: "Darkroom for Vim"
+permalink: e/vimdarkroom
+comments: true
+---
+
+<h1 class="quote">A full-screen writing program or distraction-free editor is a text editor that occupies the full display with the purpose of isolating the writer from the operating system (OS) and other applications. <em style="font-size:0.5em"> <a href="http://en.wikipedia.org/wiki/Distraction-free_editor">Wikipedia</a></em></h1>
+
+<p>I wanted that with Vim. There are ways to do it. You can play with <code>:winpos</code>, <code>lines</code> and <code>columns</code> to achieve this (see <a href="http://groups.google.com/group/vim_use/browse_thread/thread/72e12e59f0ebd6fd">here</a>). There are scripts (<a href="http://www.vim.org/scripts/script.php?script_id=2246">1</a>, <a href="http://projects.mikewest.org/vimroom/">2</a>). But all of these seemed complicated.</p>
+
+<p>Here is a simple-but-not-perfect way to achieve this. This script just hide a couple of things and add a big margin on the left:</p>
+
+<script src="https://gist.github.com/1824502.js"> </script>
+<noscript>
+  <pre>
+""" FocusMode
+function! ToggleFocusMode()
+  if (&amp;foldcolumn != 12)
+    set laststatus=0
+    set numberwidth=10
+    set foldcolumn=12
+    set noruler
+    hi FoldColumn ctermbg=none
+    hi LineNr ctermfg=0 ctermbg=none
+    hi NonText ctermfg=0
+  else
+    set laststatus=2
+    set numberwidth=4
+    set foldcolumn=0
+    set ruler
+    colorscheme molokai "re-call your colorscheme
+  endif
+endfunc
+nnoremap <F1> :call ToggleFocusMode()<cr>
+</pre>
+</noscript>
+
+<p>Go fullscreen with your terminal, and enjoy:</p>
+
+<img src="http://i.imgur.com/F2pjk.gif">
+
+<p>This is quite dumb, but it works very well for me. Let me know if you find ways to improve this.</p>
