@@ -45,7 +45,7 @@ article > * {
   max-width: 100%;
 }
 
-h1,h2,h3,h4,h5,h6,.quote {
+h1,h2,h3,h4,h5,h6,.quote,q {
   font-weight: normal;
   color: #333;
   line-height: 1.1em;
@@ -121,7 +121,7 @@ hr { margin-bottom:1.625em; }
 }
 #comments.showme {opacity: 1;}
 
-.quote {
+q, .quote {
   padding: 20px 40px 20px 60px;
   position: relative;
   background-color: #EEEEEE;

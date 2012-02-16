@@ -1,0 +1,34 @@
+---
+layout: post
+title: "HTML5 Context Menu and FullScreen"
+permalink: e/ctxfs
+mozilla: true
+---
+
+<h1>HTML5 Context Menu and FullScreen API.</h1>
+
+
+<p>Do you know you can change the native context menu of an HTML page with the HTML5 <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/interactive-elements.html#context-menus"><code>&lt;menu></code> tag</a>? Do you know you can make any element of your page go fullscreen with the HTML5 <a href="https://developer.mozilla.org/en/DOM/Using_full-screen_mode">Fullscreen API</a>?</p>
+<p><em>(Firefox needed. Webkit does support the Fullscreen API, but not &lt;menu> yet.)</em></p>
+<p>Adding a "fullscreen" entry in the context menu is really simple (<a href="http://paulrouget.com/runfield/">demo</a>):</p>
+
+<script src="https://gist.github.com/1844865.js?file=example.html"></script>
+<noscript>
+  <pre>
+  &lt;menu id="fullscreenmenu" type="context">
+    &lt;menuitem label="fullscreen"
+              onclick="document.querySelector('canvas').requestFullScreen()">
+    &lt;/menuitem>
+  &lt;/menu>
+
+  &lt;script>
+    HTMLElement.prototype.requestFullScreen =
+      HTMLElement.prototype.requestFullScreen ||
+      HTMLElement.prototype.webkitRequestFullScreen ||
+      HTMLElement.prototype.mozRequestFullScreen ||
+      HTMLElement.prototype.oRequestFullScreen ||
+      HTMLElement.prototype.msRequestFullScreen;
+  &lt;/script>
+  </pre>
+</noscript>
+
