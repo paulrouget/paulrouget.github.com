@@ -15,6 +15,9 @@ mozilla: true
 <script src="https://gist.github.com/1844865.js?file=example.html"></script>
 <noscript>
   <pre>
+  &lt;canvas contextmenu="fullscreenmenu">&lt;/canvas>
+  &lt;!-- can be a div if you prefer -->
+
   &lt;menu id="fullscreenmenu" type="context">
     &lt;menuitem label="fullscreen"
               onclick="document.querySelector('canvas').requestFullScreen()">
