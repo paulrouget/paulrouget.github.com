@@ -106,10 +106,18 @@ hr { margin-bottom:1.625em; }
 }
 
 
+#meta:before {
+  content: "༜";
+  text-align: center;
+  display: block;
+  max-width: 600px;
+  margin: 30px 0;
+}
+
 #meta {
-    text-align: right;
-    max-width: 600px;
-    margin: auto;
+  clear:both;
+  text-align: center;
+  margin: 0;
 }
 
 #comments {
