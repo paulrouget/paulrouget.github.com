@@ -107,7 +107,7 @@ hr { margin-bottom:1.625em; }
 
 
 #meta:before {
-  content: "༜";
+  content: "…";
   text-align: center;
   display: block;
   max-width: 600px;
