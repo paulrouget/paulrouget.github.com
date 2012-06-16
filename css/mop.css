@@ -84,9 +84,9 @@ aside > p { margin: 0 }
   color: #aaa;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1220px) {
   body > article {
-    margin: 40px 0 0 300px;
+    margin: 40px 0 0 320px;
   }
   #comments {
     margin: 0 0 0 300px;
