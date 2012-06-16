@@ -55,7 +55,11 @@ aside > p { margin: 0 }
   margin: 0 10px 40px 0;
   padding: 3px;
   border: 1px solid white;
-  -moz-transition: 200ms;
+  -webkit-transition: 200ms;
+     -moz-transition: 200ms;
+      -ms-transition: 200ms;
+       -o-transition: 200ms;
+          transition: 200ms;
 }
 
 #avatar:hover {
