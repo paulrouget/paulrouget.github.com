@@ -12,18 +12,16 @@ title: Paul Rouget
 
 <link rel="alternate" type="application/atom+xml" href="/index.xml">
 
-<link rel="stylesheet" href="/css/reboot.css">
-<link rel="stylesheet" href="/css/syntax.css">
+<link rel="stylesheet" href="/css/mop.css">
 
 <title>Paul Rouget</title>
 
+<aside>
+  <p><a href="http://paulrouget.com"><img id="avatar" src="http://paulrouget.com/assets/twitter_avatar.jpg"></a>Hi. I'm Paul Rouget (<a href="/s/contact">contact</a>). I work at <a href="http://mozilla.org">Mozilla</a>. I write <a href="https://wiki.mozilla.org/DevTools">code</a>. I give talks. I <a href="http://twitter.com/paulrouget">tweet</a>.
+  This is my blog (<a href="http://paulrouget.com/index.xml">rss</a>).
+</aside>
+
 <article id="home">
-
-    <h1>Hi. I'm Paul Rouget. I work at <a href="http://mozilla.org">Mozilla</a>.
-      I write <a href="https://wiki.mozilla.org/DevTools">code</a>. I give talks.
-    I <a href="http://twitter.com/paulrouget">tweet</a>.
-    </h1>
-
     <ul>
         {% for post in site.posts limit:100 %}
         {% if post.standalone == null %}
@@ -31,10 +29,8 @@ title: Paul Rouget
         {% endif %}
         {% endfor %}
     </ul>
-
 </article>
 
-<aside><a href="/s/contact">Contact</a>, <a href="http://paulrouget.com/index.xml">RSS</a></aside>
 
 <!-- Analytics -->
 <script type="text/javascript">
