@@ -45,16 +45,20 @@ aside {
   background-image: url(http://i.imgur.com/5nwPL.png);
   color: white;
   box-shadow: 0 0 3px black;
+  
 }
 
-aside > p { margin: 0 }
+aside > p { margin: 0; }
+aside > hr {
+  margin: 0; clear: both;
+  border: 0; height: 0;
+}
 
 #avatar {
   border-radius: 50%;
   display: block;
   margin: 0 10px 40px 0;
-  padding: 3px;
-  border: 1px solid white;
+  box-shadow: 0 0 0 2px white;
   -webkit-transition: 200ms;
      -moz-transition: 200ms;
       -ms-transition: 200ms;
@@ -63,7 +67,7 @@ aside > p { margin: 0 }
 }
 
 #avatar:hover {
-  border-color: #F06;
+  box-shadow: 0 0 0 2px #F06;
 }
 
 #home li {
@@ -105,7 +109,6 @@ aside > p { margin: 0 }
     height: auto;
     padding: 14px;
     position: static;
-    min-height: 80px;
     margin: 40px 0 0;
     font-size: 110%;
   }
