@@ -13,13 +13,16 @@ body > article {
   padding: 20px 10px 0;
 }
 
+body > article > * {
+}
+
 footer {
   text-align: center;
 }
 
 footer:before {
   display: block;
-  content: "…";
+  content: "#";
   margin: 20px;
 }
 
