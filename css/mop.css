@@ -13,7 +13,7 @@ body > article {
   padding: 20px 10px 0;
 }
 
-body > article > * {
+body > article img {
   max-width: 100%;
 }
 
