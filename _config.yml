@@ -1,2 +1,11 @@
 permalink: /
 pygments: true
+prose:
+  rooturl: "_posts"
+  metadata:
+    "_posts/blog":
+      layout: "post2"
+      title: "Title of your article"
+      permalink: "e/FIXME"
+      mozilla: true
+      comments: false
