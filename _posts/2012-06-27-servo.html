@@ -1,0 +1,53 @@
+---
+layout: post2
+title: "Servo, an experimental Gecko alternative"
+permalink: e/servo
+comments: false
+mozilla: true
+---
+
+<h1>Servo, an experimental Gecko alternative</h1>
+
+<p>You know <a href="http://en.wikipedia.org/wiki/Gecko_%28layout_engine%29">Gecko</a>.
+It's the layout engine used by Firefox.
+While we are still working hard on adding new feature
+and improving gecko, we are also experimenting with
+a new engine: <strong>servo</strong>.</p>
+
+<h2>How is servo different from Gecko?</h2>
+
+<p><strong>It's not written in C++</strong>. We are working on our own
+language, named <a href="http://www.rust-lang.org/">Rust</a>.
+C++ is not very suitable for things that need to be parallelized
+and safe at the same time. However, Rust has been designed for that.</p>
+
+<p><strong>Modularity</strong>. From the <a href="https://groups.google.com/forum/?fromgroups#!topic/mozilla.dev.servo/nJJxEy1ehpE">
+  Servo Mailing list</a>:
+<q>We make heavy use of Git submodules for modularity--like WebKit, we want
+  the pieces of Servo to be independently hackable.</q></p>
+
+<p><strong>A scalable rendering engine</strong>. Isolating the different operations of your
+browser is important for responsiveness. Rust comes with "lightweight threads" we call "Tasks".
+There are tasks for all the major operations: rendering, i/o, layers compositing, and for each
+page.</p>
+
+<p><strong>Networking operations</strong> are handled by <a href="https://github.com/joyent/libuv/">libuv</a>. A library that has been
+developed first for NodeJS.</p>
+
+<h2>How is servo similar to Gecko?</h2>
+
+<p><strong>2D Graphics</strong>: for Gecko, we are working on a new graphic engine named Azure.
+Some parts are already present in Firefox. Azure abstracts the different ways to render
+2D elements on the screen (Cairo, OpenGL, Skia, …). Easy then for us to switch between
+the right backend depending on the device (Android, osx, Windows, Linux, with or without
+a supported GPU, …)</p>
+
+<p><strong>JavaScript engine</strong>. We keep the same engine, SpiderMonkey.</p>
+
+<h2>More info</h2>
+<ul>
+  <li><a href="https://groups.google.com/d/topic/mozilla.dev.servo/nJJxEy1ehpE/discussion">State of Servo</a>
+  <li><a href="http://www.2ality.com/2012/02/servo.html">Servo: a vision for the future of Firefox</a>
+  <li><a href="http://www.rust-lang.org/">The Rust language (Open Source)</a>
+  <li><a href="https://github.com/mozilla/servo">Servo on github (Open Source)</a>
+</ul>
