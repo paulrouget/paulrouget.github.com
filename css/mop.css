@@ -49,7 +49,6 @@ aside {
   background-image: url(http://i.imgur.com/5nwPL.png);
   color: white;
   box-shadow: 0 0 3px black;
-  
 }
 
 aside > p { margin: 0; }
@@ -107,7 +106,7 @@ aside > hr {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   aside {
     width: 100%;
     height: auto;
