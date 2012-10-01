@@ -49,10 +49,11 @@ a:hover { text-decoration: underline; }
   content: "tldr; ";
   font-size: 80%;
   color: black;
+  font-style: normal;
 }
 
 .tldr > strong {
-  font-style: none;
+  font-style: normal;
   color: black;
 }
 
