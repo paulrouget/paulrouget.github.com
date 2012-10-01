@@ -32,12 +32,23 @@ footer:before {
   margin: 0 auto;
   padding: 0 10px;
 }
+
 #comments:not(.showme) {
   display: none;
 }
 
 a { color:#FF0066; text-decoration:none; }
 a:hover { text-decoration: underline; }
+
+.tldr {
+  color: #666;
+  font-style: italic;
+}
+
+.tldr:before {
+  content: "tldr; ";
+  font-size: 80%;
+}
 
 /* Sidebar */
 
