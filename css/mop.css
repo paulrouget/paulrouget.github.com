@@ -48,6 +48,12 @@ a:hover { text-decoration: underline; }
 .tldr:before {
   content: "tldr; ";
   font-size: 80%;
+  color: black;
+}
+
+.tldr > strong {
+  font-style: none;
+  color: black;
 }
 
 /* Sidebar */
