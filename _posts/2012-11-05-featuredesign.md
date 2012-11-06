@@ -18,7 +18,7 @@ industry, this won't be news to you: it's not as simple as
 
 # Shaping a Firefox feature - how does it work?
 
-So first, a little warning: *I'm delibarately simplifying the whole story.
+So first, a little warning: *I'm deliberately simplifying the whole story.
 Because a lot of people are involved in more than one team, because Mozilla
 is a mix of employees and volunteers, because not all the teams work the
 same way, because we have lot of different products…*
