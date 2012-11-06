@@ -3,7 +3,6 @@ layout: post2
 title: "\"Firefox developers don't listen to users\""
 permalink: e/featuredesign
 mozilla: true
-standalone: true
 ---
 
 ## "Firefox developers don't listen to users"
@@ -13,9 +12,9 @@ standalone: true
 Haaa, how many time did we hear that? Every time we ship a new feature I guess :)
 
 So yes, we do listen to users, but this kind of comment reveals how much some people misunderstand how we build things
-at Mozilla. In this article, I'd like to clarify this process. If you work in this
+at Mozilla. In this article, I'd like to clarify this process. If you work in the Software
 industry, this won't be news to you: it's not as simple as
-*"Developer listens to users, builds according to what he hears"*.
+*"Developers listen to users, build according to what they hear"*.
 
 # Shaping a Firefox feature - how does it work?
 
@@ -50,7 +49,7 @@ With [Mozilla's core principles](https://www.mozilla.org/about/manifesto.html) i
 
 ## Metrics
 
-**The Metrics team** gathers data about how people use our tools,
+**The Metrics team** gathers data about how people use our tools
 and about how our tools perform.
 For example, they will be able to tell **with actual numbers**,
 if Firefox tends to be faster or slower over the different releases.
@@ -166,7 +165,7 @@ they will work on defining the requirements and work with engineering team to in
 
 ----
 
-So yeah, when we build a feature in Firefox, it's not as simple a "developer decide to", it's lot more serious than that.
+So yeah, when we build a feature in Firefox, it's not as simple a "developer decide to", it's a lot more serious than that.
 We put some brilliant mind into a room for weeks/months, they do studies, gather data, come to conclusions, prototype, confront results
 with other data and other teams, iterate.
 
