@@ -1,6 +1,6 @@
 ---
 layout: post2
-title: "\"Firefox developers don't listen to users\""
+title: "Shaping a Firefox feature - how does it work?"
 permalink: e/featuredesign
 mozilla: true
 ---
