@@ -3,6 +3,7 @@ layout: post2
 title: "Shaping a Firefox feature - how does it work?"
 permalink: e/featuredesign
 mozilla: true
+description: "Building a feature in Firefox is not as simple as you think…"
 ---
 
 ## "Firefox developers don't listen to users"
