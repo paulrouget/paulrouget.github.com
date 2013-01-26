@@ -27,7 +27,7 @@ title: Paul Rouget
     <ul>
         {% for post in site.posts limit:100 %}
         {% if post.standalone == null %}
-        <li><time datetime="{{ post.date }}">{{ post.date | date_to_string }}</time><a href="{{ post.url }}">{{ post.title }}</a>
+		<li><time datetime="{{ post.date }}">{{ post.date | date_to_string }}</time><a href="{{ post.url }}">{{ post.title }}</a></li>
         {% endif %}
         {% endfor %}
     </ul>
