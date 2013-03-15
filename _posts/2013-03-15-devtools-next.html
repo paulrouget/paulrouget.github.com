@@ -1,0 +1,119 @@
+---
+layout: post2
+title: "Future of Firefox DevTools"
+permalink: e/DevToolsnext
+comments: true
+mozilla: true
+standalone: true
+description: "10 days ago, I asked on HackerNews and Twitter what people would like to see in the Firefox DevTools. Here is the result."
+---
+
+<h1>Future of Firefox DevTools</h1>
+
+<p>10 days ago I asked in different channels about what web
+developers would like to see in the Firefox DevTools. I
+was impressed by the amount of answers we got (especially
+from HackerNews and Twitter).</p>
+
+<p>We computed and prioritized all these inputs.
+Then the DevTools team met, and spent a week hacking on
+these different requests.</p>
+
+<h2>Code in the browser &amp; control browser from editors/IDEs</h2>
+<p>This is the TOP 1 request. Breaking the painful <em>Editor ⇄ Browser ⇄ DevTools</em> workflow.
+Staying in the browser, or not leaving the editor.</p>
+<p>We are exploring 2 approaches: letting other editors interacts with Firefox,
+and integrating editors in Firefox.</p>
+
+<h3>A python library to interact with Firefox</h3>
+
+<p>A lot of editors are scriptable in Python. And Firefox has
+remote capabilities (a DevTools protocol accessible via IP).
+So we are building a python library that can be used by editors
+to interact with Firefox (desktop or mobile). We could for example
+add JS breakpoints from Vim, or edit the code of the current
+page from SublimeText.</p>
+
+<p>Here is a proof of concept I have been working on. CSS live edit via SublimeText:</p>
+
+<iframe style="max-width: 600px; width:100%;height:400px" src="http://www.youtube.com/embed/UrnB8lZnx4I" frameborder="0" allowfullscreen>
+  <a href="http://youtu.be/UrnB8lZnx4I">Watch on youtube.</a>
+</iframe>
+
+<h3>Authoring in the browser</h3>
+
+<p>Another approach is to let the user write code directly from Firefox.
+Basically having editors in the DevTools. We are still trying to figure
+out what this could look like. Do we want a jsfiddle-like tool? Do we
+want a file based editor? Not sure yet, still exploring.</p>
+
+<p>Authoring tool mockup:</p>
+<a href="http://i.imgur.com/FldgNq0.png"><img src="http://i.imgur.com/FldgNq0.png"></a>
+
+<p>Don't expect these 2 things to happen soon. It will take us a couple
+of month to get the Python library, and more to get the in-Firefox editors.</p>
+
+<h2>Network Panel &amp; Timeline</h2>
+<p>These are tools you'll find in Chrome and Firebug, but not in the Firefox DevTools yet.
+We have decided to start with a Network Panel. Victor Porof is working on this, and he
+managed to get a working prototype:</p>
+
+<iframe style="max-width: 600px; width:100%;height:400px" src="http://www.youtube.com/embed/f-jVZDKV90I" frameborder="0" allowfullscreen>
+  <a href="http://youtu.be/f-jVZDKV90I">Watch on youtube.</a>
+</iframe>
+
+<h2>Better story about Firebug</h2>
+<p>If you're a Firebug user, the Firefox DevTools might get on your way. We need to improve that.
+We will do several things (like a more obvious way to disable the "Inspect" menu from the context
+menu). One of the thing we are looking at is how to "merge" Firebug into the DevTools UI.</p>
+<p> Jan 'Honza' Odvarko (main Firebug developer) is experimenting with this, and made some
+good progress:</p>
+
+<a href="http://i.imgur.com/acTVIBr.png"><img src="http://i.imgur.com/acTVIBr.png"></a>
+
+<h2>Docking the tools on the right side of the browser</h2>
+<p>Good news! We built that and it's now in Firefox Nightly:</p>
+<a href="http://i.imgur.com/duQOXq7.png"><img src="http://i.imgur.com/duQOXq7.png"></a>
+
+<h2>CoffeeScript support</h2>
+<p>To address this, we are integrating support for SourceMap. Nick Fitzgerald demonstrated
+a version of the Firefox debugger that supports SourceMap and CoffeeScript:</p>
+
+<a href="http://i.imgur.com/W6pPhKw.png"><img src="http://i.imgur.com/W6pPhKw.png"></a>
+
+<p>Nick's work will also help for debugging minimized CSS/JS files.</p>
+
+<p>Also, I'd like to mention that Paul Miller (contributor) managed to get CoffeeScript
+and LiveScript support into Firefox Terminal (<a href="http://paulrouget.com/e/fxterminalv3/">blog post</a>):
+</p>
+
+<a href="http://i.imgur.com/cyGwbgW.png"><img src="http://i.imgur.com/cyGwbgW.png"></a>
+
+<h2>An aggregate repaint view</h2>
+<p>Being able to see what get repainted on the page (costly operation) is useful
+for performance work. I landed that on Monday. It's not perfect yet, but a good
+first step:</p>
+<iframe style="max-width: 600px; width:100%;height:400px" src="http://www.youtube.com/embed/XFB-Kk0qT6E" frameborder="0" allowfullscreen>
+  <a href="http://youtu.be/XFB-Kk0qT6E">Watch the video on youtube.</a>
+</iframe>
+
+<h2>More</h2>
+
+<p>Other things have been requested, like visualizing event bindings, offline storage tools and
+pseudo elements inspection. We are also looking at this seriously. I hope to have some good news
+about these soon :)</p>
+
+<h2>Thank you HN!</h2>
+
+<p>Seriously, you guys rock! Invaluable feedback.
+Keep on sharing ideas/bugs/feedback (leave a comment
+here or ping me on twitter: <a href="http://twitter.com/paulrouget">@paulrouget</a>).</p>
+
+<style>
+  h2:before {
+    content: "*";
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+  }
+</style>
