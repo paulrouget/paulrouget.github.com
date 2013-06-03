@@ -26,10 +26,6 @@
 
     <footer>
       <span>{{ page.date | date_to_string}}</span>
-        / <a onclick="window.open('http://twitter.com/share?text={{page.title}}&via=paulrouget&url=http%3A%2F%2Fpaulrouget.com%2F{{page.url | xml_escape}}','','width=400,height=300,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;" href="http://twitter.com/share?text={{page.title}}&via=paulrouget&url=http%3A%2F%2Fpaulrouget.com%2F{{page.url | xml_escape}}" id="twitter" title="tweet this" target="_blank">
-            <span>tweet&nbsp;this</span>
-        </a>
-
         {% if page.comments %}
         / <a href="#comments" id="showcomments"
              onclick='document.getElementById("comments").classList.toggle("showme");document.getElementById("disqus_script").src="http://disqus.com/forums/paulrouget/embed.js"'>show comments</a>
@@ -48,7 +44,7 @@
 </body>
 
 <aside>
-  <p><a href="http://paulrouget.com"><img id="avatar" src="http://paulrouget.com/assets/twitter_avatar.jpg"></a>Hi. I'm Paul Rouget (<a href="/s/contact">contact</a>). I work at <a href="http://mozilla.org">Mozilla</a>. I write <a href="https://wiki.mozilla.org/DevTools">code</a>. I give talks. I <a href="http://twitter.com/paulrouget">tweet</a>.
+  <p><a href="http://paulrouget.com"><img id="avatar" src="http://paulrouget.com/assets/twitter_avatar.jpg"></a>Hi. I'm Paul Rouget (<a href="/s/contact">contact</a>). I work at <a href="http://mozilla.org">Mozilla</a>. I write <a href="https://wiki.mozilla.org/DevTools">code</a>. I give talks.
   This is my blog (<a href="http://paulrouget.com/index.xml">rss</a>).
   <hr>
 </aside>
