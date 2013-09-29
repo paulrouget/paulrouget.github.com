@@ -65,9 +65,8 @@ aside {
   position: fixed;
   top: 0; left: 0;
   padding: 50px;
-  background-image: url(http://i.imgur.com/5nwPL.png);
+  background-color: #333;
   color: white;
-  box-shadow: 0 0 3px black;
 }
 
 aside > p { margin: 0; }
