@@ -166,11 +166,11 @@ they will work on defining the requirements and work with engineering team to in
 
 ----
 
-So yeah, when we build a feature in Firefox, it's not as simple a "developer decide to", it's a lot more serious than that.
+So yeah, when we build a feature in Firefox, it's not as simple as "developer decides to", it's a lot more serious than that.
 We put some brilliant mind into a room for weeks/months, they do studies, gather data, come to conclusions, prototype, confront results
 with other data and other teams, iterate.
 
-So next you see a comment like "Firefox developers don't listen to users", please, point them to this article ;)
+So next time you see a comment like "Firefox developers don't listen to users", please, point them to this article ;)
 
 <style>
 blockquote {
