@@ -131,8 +131,8 @@ aside > hr {
     height: auto;
     padding: 14px;
     position: static;
-    margin: 40px 0 0;
-    font-size: 110%;
+    font-size: 80%;
+    text-align: center;
   }
   body > article {
     margin: 0 auto;
@@ -142,8 +142,8 @@ aside > hr {
     margin: 0 auto;
   }
   #avatar {
-    display: inline;
-    margin: 0 15px 0 0;
-    float: left;
+    height: 50px;
+    width: 50px;
+    margin: 10px auto;
   }
 }

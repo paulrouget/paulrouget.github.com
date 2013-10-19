@@ -9,7 +9,6 @@ title: "FIXME"
 permalink: e/FIXME
 comments: true
 mozilla: true
-description: true
 ---
 ' > $FILENAME
 
