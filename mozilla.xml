@@ -18,7 +18,7 @@ layout: nil
     {% if post.standalone == null %}
         <entry>
             <id>http://paulrouget.com{{ post.id }}</id>
-            <link type="text/html" rel="alternate" href="http://paulrouget.com/{{ post.url }}"/>
+            <link type="text/html" rel="alternate" href="http://paulrouget.com{{ post.url }}"/>
             <title>{{ post.title }}</title>
             <updated>{{ post.date | date_to_xmlschema }}</updated>
             <author>
