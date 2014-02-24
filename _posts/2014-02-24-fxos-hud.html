@@ -1,0 +1,177 @@
+---
+layout: post2
+title: "Firefox OS: Track reflows and event loop lags"
+permalink: e/fxoshud
+comments: false
+mozilla: true
+standalone: true
+---
+
+<h1>Firefox OS: track reflows and event loop lags</h1>
+
+<section>
+  <p>
+    Reaching 60 FPS: what is the event loop, what are reflows,
+    and how to make you mobile app smooth.
+  </p>
+</section>
+
+<p><em>In this article, I'm talking about Firefox OS apps, but
+    this is true for any web pages, on any browser.</em></p>
+
+<p>
+  If you already have a good understand of what the event loop
+  is and what reflows are, just jump to the end of this article
+  to see how to spot janks in Firefox OS.
+</p>
+
+<section>
+  <p>
+    Each Firefox OS apps run in its own process.
+    Each process has its own event loop.
+    The event loop runs in the main thread.
+    There are other threads running (for network request, composition, media decoding, …),
+    but the UI of the app is rendered in the main process.
+    So if the event loop is blocked, the UI of the app is frozen.
+    This is barely noticable in Firefox Desktop, but in Firefox OS,
+    any slow operation in the event loop will make the app choppy.
+  </p>
+</section>
+
+<section>
+  <h2>What is the event lopp?</h2>
+  <p>
+    Any layout engine (Gecko, Webkit, …) is driven by an event loop.
+    This is how it works:
+  </p>
+  <p>
+    Think slow motion. At anytime, in the main thread, gecko holds
+    a list of <em>events</em> to be processed. Events can be: "user clicked",
+    "a XMLHttpRequest is done", "page has closed", "a setTimeout reached its delay",
+    "painting the screen is needed", "mouse moved", "the user scrolled", …
+  </p>
+  <p>Gecko will consume the oldest event and execute code. If there is a JS callback
+    to execute (<code>addEventListener("click", onClick)</code>, gecko will
+    run the callback (<code>onClick</code>) <strong>to completion</strong>.
+    When the JS code is exectued, gecko will consume the next event.
+    Maybe it's time to update the page on the screen. Gecko will then draw.
+  </p>
+  <p>
+    If an operation takes more than 16 milliseconds (1000ms / 60), gecko won't
+    be able to draw at 60FPS. A frame will be skipped.
+    A web developer needs to make sure that no operations will take more than 16ms.
+  </p>
+  <p>
+    JavaScript and reflows are 2 things happening in the main thread, in the event
+    loop (so they can make gecko skip a frame).
+  </p>
+  <p>JavaScript can be slow for many reasons. Because of a big loop, because of
+    DOM operations, because of long synchronous calls like localStorage, …).
+    Making sure these JS "run to completion" don't block the event loop for too
+    long is important.
+  </p>
+</section>
+
+<section>
+  <h2>Reflows</h2>
+  <p>A reflow is when the layout engine needs to calculate the position and/or
+    the size of an element on the page. Reflows happen in the main thread, they
+    block the event loop. And again, can make gecko skip frames.
+  </p>
+  <p>There are different reasons why a reflow
+    is needed: page is resized, a CSS rule or a JS function that changes the
+    size or position of a node, a node is added/removed from the page.
+  </p>
+  <p>Well, not exactly. When CSS and JS change the layout, a reflow is not
+    immediatly triggered. The layout is flagged a "invalid" (flagging is fast),
+    BUT, at some point, gecko has to reflow: right before drawing the page, or
+    if a JS code request the size/position of a node.
+  </p>
+  <p>Let's look at this code:</p>
+  <pre>
+1  div1.style.margin = "200px";
+2  var height1 = div1.clientHeight;
+3  div2.classList.add("foobar");
+4  var height2 = div2.clientHeight;
+5  doSomething(height1, height2);
+    </pre>
+  <p>
+    Line 1, layout is marked as invalid. Line 2, to get <code>clientHeight</code>,
+    gecko needs to computed the new size of <code>div1</code>. A reflow is triggered.
+    Line 3, layout is marked as invalid. Line 4, a reflow is triggered again.
+    Maybe it's possible to do the batch the invalidation to get only one reflow
+    by moving Line 3 right below Line 1.
+  </p>
+  <p>
+    These reflows are called <strong>uninterruptible reflows</strong> (they are
+    absolutely necessary, because JS code needs to get the actual geometry
+    of a node). Some reflows don't have to happen right away.
+    <strong>Interruptible reflows</strong> can be delayed (usually to let the event
+    loop run to not block the main thread).
+  </p>
+  <p>
+    It's important to differentiate <strong>painting</strong> operations and <strong>reflows</strong>.
+    Think about a code like that:
+  </p>
+  <pre>
+&ltldiv class="button">hi&lt;/div>
+
+CSS1:
+.button:hover {
+  border: 1px solid red;
+  margin: -1px; /* to compensate the new border */
+}
+
+CSS2:
+.button {
+  border: 1px solid transparent;
+}
+.button:hover {
+  border-color: red;
+}
+  </pre>
+  <p>
+    Using CSS1 or CSS2 will end up with the same result. But CSS1 will
+    require the layout engine to compute the geometry of the button.
+    CSS2 will only require painting a red rectangle.
+  </p>
+  <p><strong>Painting is much cheaper than reflowing.</strong></p>
+  <p>
+    This is why it's recommended to use CSS transforms instead
+    of regular CSS properties. For example, <code>transform: translate(20px,40px)</code>
+    will not require a reflow. And the DOM will <strong>not</strong> reflect the
+    actual position of the element (clientHeight, clientWidth, offsetWidth, offsetHeight,
+    getBoundingClientRect()), so no need to do any computation on the main
+    thread.
+  </p>
+</section>
+
+<section>
+  <h2>Detecting event loop lag and reflows</h2>
+  <p>On slow CPUs, making sure the event loop doesn't get blocked for too long and
+    reflows don't happen too often is critical.
+  </p>
+  <p>
+    Jan Keromnes, Vivien Nicolas and myself have been working on tools
+    for Firefox OS to show when reflows happen in an app, and when the
+    event loop gets blocked for too long.
+  </p>
+  <p>To enable then, in recent versions of Firefox OS:
+    <ul>
+      <li>Enable developer tools:
+        <ul>
+          <li>Settings > Device Information > More Information > Developer Menu</li>
+        </ul>
+      </li>
+      <li>Enable developer HUD:
+        <ul>
+          <li>Settings > Developer > Developer HUD</li>
+        </ul>
+      </li>
+      <li>Enable <code>Reflows</code> and <code>Jank</code></li>
+    </ul>
+    Jank is "event loop lag". You can set the lag threshold. Ideally, you should
+    not get any jank > 20ms. But from our experience, you'll get lags > 100ms.
+    Better to start with 100ms and narrow down as you hunt the lags.
+  </p>
+</section>
