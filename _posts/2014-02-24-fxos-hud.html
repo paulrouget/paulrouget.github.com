@@ -24,9 +24,9 @@ standalone: true
   </p>
 
   <p>
-    If you already have a good understand of what the event loop
+    If you already have a good understanding of what the event loop
     is and what reflows are, just jump to the end of this article
-    to see how to spot janks in Firefox OS.
+    to see how to find janks in your Firefox OS app.
   </p>
 </section>
 
@@ -40,8 +40,8 @@ standalone: true
     There are other threads running (for network request, composition, media decoding, …),
     but the UI of the app is rendered in the main process.
     So if the event loop is blocked, the UI of the app is frozen.
-    This is barely noticable in Firefox Desktop, but in Firefox OS,
-    any slow operation in the event loop will make the app choppy.
+    This is barely noticeable on desktop browsers, but with Firefox OS (and on any mobile
+    device in general) any slow operation in the event loop will make the app choppy.
   </p>
 </section>
 
@@ -64,13 +64,16 @@ standalone: true
     Maybe it's time to update the page on the screen. Gecko will then draw.
   </p>
   <p>
+    Operations are executed sequentially. One after the other.
+  </p>
+  <p>
     If an operation takes more than 16 milliseconds (1000ms / 60), gecko won't
     be able to draw at 60FPS. A frame will be skipped.
     A web developer needs to make sure that no operations will take more than 16ms.
   </p>
   <p>
-    JavaScript and reflows are 2 things happening in the main thread, in the event
-    loop (so they can make gecko skip a frame).
+    JavaScript and reflows are 2 operations happening in the main thread, in the event
+    loop (so they can force gecko to skip a frame).
   </p>
   <p>JavaScript can be slow for many reasons. Because of a big loop, because of
     DOM operations, because of long synchronous calls like localStorage, …).
@@ -86,7 +89,7 @@ standalone: true
     block the event loop. And again, can make gecko skip frames.
   </p>
   <p>There are different reasons why a reflow
-    is needed: page is resized, a CSS rule or a JS function that changes the
+    is executed: page is resized, a CSS property or a JS function that changes the
     size or position of a node, a node is added/removed from the page.
   </p>
   <p>Well, not exactly. When CSS and JS change the layout, a reflow is not
@@ -106,7 +109,7 @@ standalone: true
     Line 1, layout is marked as invalid. Line 2, to get <code>clientHeight</code>,
     gecko needs to computed the new size of <code>div1</code>. A reflow is triggered.
     Line 3, layout is marked as invalid. Line 4, a reflow is triggered again.
-    Maybe it's possible to do the batch the invalidation to get only one reflow
+    Maybe it's possible to batch the invalidations to get only one reflow
     by moving Line 3 right below Line 1.
   </p>
   <p>
@@ -118,7 +121,7 @@ standalone: true
   </p>
   <p>
     It's important to differentiate <strong>painting</strong> operations and <strong>reflows</strong>.
-    Think about a code like that:
+    Think about a code like this:
   </p>
   <pre>
 &lt;div class="button">hi&lt;/div>
@@ -146,10 +149,14 @@ CSS2:
   <p>
     This is why it's recommended to use CSS transforms instead
     of regular CSS properties. For example, <code>transform: translate(20px,40px)</code>
-    will not require a reflow. And the DOM will <strong>not</strong> reflect the
-    actual position of the element (clientHeight, clientWidth, offsetWidth, offsetHeight,
-    getBoundingClientRect()), so no need to do any computation on the main
-    thread.
+    will not require a reflow: <ul>
+      <li> 1) position on screen and size of the transformed
+              element won't affect other elements (rotation/scaling/translating are painting
+              operations, there's not shift/collision/compensation/…)</li>
+      <li> 2) the DOM will <strong>not</strong> reflect the actual position of the element
+           (clientHeight, clientWidth, offsetWidth, offsetHeight,
+           getBoundingClientRect()), so no need to do any computation on the main
+           thread.</ul>
   </p>
 </section>
 
