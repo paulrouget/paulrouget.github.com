@@ -64,7 +64,10 @@ standalone: true
     Maybe it's time to update the page on the screen. Gecko will then draw.
   </p>
   <p>
-    Operations are executed sequentially. One after the other.
+    Operations are executed sequentially. One after the other. JavaScript functions are <strong>never</strong> run in parallel
+    (exception: Web Workers). <code>setTimeout(callback, 10);foobar();</code> If <code>foobar</code> takes 100ms, <code>callback
+    will be only executed after these 100ms. Because <code>foobar</code> blocks the event loop. The timeout event can't be
+    treated.
   </p>
   <p>
     If an operation takes more than 16 milliseconds (1000ms / 60), gecko won't
@@ -210,9 +213,6 @@ CSS2:
 
 <style>
   code {
-    color: #555;
-  }
-  strong {
-    color: #F06;
+    color: #F85;
   }
 </style>
