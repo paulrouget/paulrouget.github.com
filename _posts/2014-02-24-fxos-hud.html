@@ -59,7 +59,7 @@ standalone: true
   </p>
   <p>Gecko will consume the oldest event and execute code. If there is a JS callback
     to execute, like <code>addEventListener("click", onClick)</code>, gecko will
-    run the callback <code>onClick</code> <strong>to completion</strong>.
+    run the callback <code>onClick</code> **to completion**.
     When the JS code is executed, gecko will consume the next event.
     Maybe it's time to update the page on the screen. Gecko will then draw.
   </p>
@@ -92,13 +92,13 @@ standalone: true
     block the event loop. And again, can make gecko skip frames.
   </p>
   <p>There are different reasons why a reflow
-    is executed: page is resized, a CSS property or a JS function changes the
+    is executed: page is resized, a CSS property or a JS function the
     size or position of a node, a node is added/removed from the page.
   </p>
-  <p>Well, not exactly. When CSS and JS change the layout, a reflow is not
-    immediatly triggered. The layout is flagged a "invalid" (flagging is fast),
+  <p>When CSS and JS change the layout, a reflow is not
+    immediatly triggered. The layout is flagged as "invalid" (flagging is fast),
     BUT, at some point, gecko has to reflow: right before drawing the page, or
-    if a JS code request the size/position of a node.
+    if a JS code requests the size/position of a node.
   </p>
   <p>Let's look at this code:</p>
   <pre>
@@ -112,7 +112,7 @@ standalone: true
     Line 1, layout is marked as invalid. Line 2, to get <code>clientHeight</code>,
     gecko needs to computed the new size of <code>div1</code>. A reflow is triggered.
     Line 3, layout is marked as invalid. Line 4, a reflow is triggered again.
-    Maybe it's possible to batch the invalidations to get only one reflow
+    It's possible to batch the invalidations to get only one reflow
     by moving Line 3 right below Line 1.
   </p>
   <p>
@@ -145,8 +145,8 @@ CSS2:
   </pre>
   <p>
     Using CSS1 or CSS2 will end up with the same result. But CSS1 will
-    require the layout engine to compute the geometry of the button.
-    CSS2 will only require painting a red rectangle.
+    require the layout engine to compute the geometry of the button (and conclude
+    that nothing needs to be moved), CSS2 will only require painting a red rectangle.
   </p>
   <p><strong>Painting is much cheaper than reflowing.</strong></p>
   <p>
@@ -173,7 +173,7 @@ CSS2:
     for Firefox OS to show when reflows happen in an app, and when the
     event loop gets blocked for too long.
   </p>
-  <p>To enable then, in recent versions of Firefox OS:
+  <p>To enable them, in recent versions of Firefox OS:
     <ul>
       <li>Enable developer tools:
         <ul>
@@ -193,7 +193,7 @@ CSS2:
   </p>
   <p>
     If you want to enable these tools for certified apps, you'll need to turn off this
-    preference (in prefs.js): <code>devtools.debugger.forbid-certified-apps > false</code>
+    preference (in prefs.js): <code>devtools.debugger.forbid-certified-apps > false</code>.
   </p>
 
   <p>
@@ -204,7 +204,8 @@ CSS2:
 
   <p>
     To get more details, I encourage you to <a href="https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager">
-    use the App Manager</a> or simple use <code>adb logcat | grep Widget</code>. We are working
+    use the App Manager</a> or simple use <code>adb logcat | grep Widget</code> (uninterruptible reflows
+    include a JS stack). We are working
     on more tools to make hunting performance issues easier, but the Firefox OS developer HUD
     will help you track lags and reflows.
   </p>
@@ -212,6 +213,10 @@ CSS2:
 </section>
 
 <style>
-  code {
-    color: #F85;
+  article strong, article code {
+    color: #F06;
   }
+  article a {
+    text-decoration: underline;
+  }
+</style>
