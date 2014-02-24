@@ -11,19 +11,21 @@ standalone: true
 
 <section>
   <p>
-    Reaching 60 FPS: what is the event loop, what are reflows,
+    Reaching 60 FPS, what is the event loop, what are reflows,
     and how to make you mobile app smooth.
   </p>
+
+  <p>
+    In this article, I'm talking about Firefox OS apps, but
+    this is true for any web pages, on any browser.
+  </p>
+
+  <p>
+    If you already have a good understand of what the event loop
+    is and what reflows are, just jump to the end of this article
+    to see how to spot janks in Firefox OS.
+  </p>
 </section>
-
-<p><em>In this article, I'm talking about Firefox OS apps, but
-    this is true for any web pages, on any browser.</em></p>
-
-<p>
-  If you already have a good understand of what the event loop
-  is and what reflows are, just jump to the end of this article
-  to see how to spot janks in Firefox OS.
-</p>
 
 <hr>
 
@@ -176,4 +178,22 @@ CSS2:
     not get any jank > 20ms. But from our experience, you'll get lags > 100ms.
     Better to start with 100ms and narrow down as you hunt the lags.
   </p>
+  <p>
+    If you want to enable these tools for certified apps, you'll need to turn off this
+    preference (in prefs.js): <code>devtools.debugger.forbid-certified-apps > false</code>
+  </p>
+
+  <p>
+    Now, some square should show up at bottom right of you app. The purple one is a reflow
+    counter. The blue one shows the time of the latest event loop lag (only if it reaches
+    the threshold set in the developer menu).
+  </p>
+
+  <p>
+    To get more details, I encourage you to <a href="https://developer.mozilla.org/en-US/Firefox_OS/Using_the_App_Manager">
+    use the App Manager</a> or simple use <code>adb logcat | grep Widget</code>. We are working
+    on more tools to make hunting performance issues easier, but the Firefox OS developer HUD
+    will help you track lags and reflows.
+  </p>
+
 </section>
