@@ -64,8 +64,8 @@ standalone: true
     Maybe it's time to update the page on the screen. Gecko will then draw.
   </p>
   <p>
-    Operations are executed sequentially. One after the other. JavaScript functions are <strong>never</strong> run in parallel
-    (exception: Web Workers). <code>setTimeout(callback, 10);foobar();</code> If <code>foobar</code> takes 100ms, <code>callback</code>
+    Operations are executed sequentially. One after the other. JavaScript functions don't run in parallel
+    <code>setTimeout(callback, 10);foobar();</code> If <code>foobar</code> takes 100ms, <code>callback</code>
     will be only executed after these 100ms. Because <code>foobar</code> blocks the event loop. The timeout event can't be
     treated.
   </p>
@@ -209,6 +209,11 @@ CSS2:
     on more tools to make hunting performance issues easier, but the Firefox OS developer HUD
     will help you track lags and reflows.
   </p>
+
+  <p>PS: I said that JS functions don't run in parallel. It's not true for Web Workers, but workers
+     don't interact with the DOM, layout or anything that could have an impact on the main thread.
+     In some special scenarios, gecko (and only gecko) spins the event loop in the middle of a sync
+     JS call (sync XHR and window.alert()), because Firefox Desktop has only one event loop.</p>
 
 </section>
 
