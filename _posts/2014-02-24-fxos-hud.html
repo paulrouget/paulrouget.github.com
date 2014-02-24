@@ -210,10 +210,11 @@ CSS2:
     will help you track lags and reflows.
   </p>
 
-  <p>PS: I said that JS functions don't run in parallel. It's not true for Web Workers, but workers
+  <hr>
+  <p><em>PS: I said that JS functions don't run in parallel. It's not true for Web Workers, but workers
      don't interact with the DOM, layout or anything that could have an impact on the main thread.
      In some special scenarios, gecko (and only gecko) spins the event loop in the middle of a sync
-     JS call (sync XHR and window.alert()), because Firefox Desktop has only one event loop.</p>
+     JS call (sync XHR and window.alert()), because Firefox Desktop has only one event loop.</em></p>
 
 </section>
 
