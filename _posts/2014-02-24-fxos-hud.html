@@ -60,12 +60,12 @@ standalone: true
   <p>Gecko will consume the oldest event and execute code. If there is a JS callback
     to execute (<code>addEventListener("click", onClick)</code>, gecko will
     run the callback (<code>onClick</code>) <strong>to completion</strong>.
-    When the JS code is exectued, gecko will consume the next event.
+    When the JS code is executed, gecko will consume the next event.
     Maybe it's time to update the page on the screen. Gecko will then draw.
   </p>
   <p>
     Operations are executed sequentially. One after the other. JavaScript functions are <strong>never</strong> run in parallel
-    (exception: Web Workers). <code>setTimeout(callback, 10);foobar();</code> If <code>foobar</code> takes 100ms, <code>callback
+    (exception: Web Workers). <code>setTimeout(callback, 10);foobar();</code> If <code>foobar</code> takes 100ms, <code>callback</code>
     will be only executed after these 100ms. Because <code>foobar</code> blocks the event loop. The timeout event can't be
     treated.
   </p>
@@ -215,4 +215,3 @@ CSS2:
   code {
     color: #F85;
   }
-</style>
