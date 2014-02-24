@@ -73,8 +73,11 @@ standalone: true
   </p>
   <p>
     If an operation takes more than 16 milliseconds (1000ms / 60), gecko won't
-    be able to draw at 60FPS. A frame will be skipped.
-    <strong>A web developer needs to make sure that no operations will take more than 16ms.</strong>
+    be able to draw at 60FPS. A frame will be skipped. Ideally, no operation
+    should take more than 16ms. It's not always possible (because the developer
+    doesn't control all the things happening in the event loop, it's sometimes
+    gecko's responsability), but with a good understanding of the event loop,
+    many slow operations can be avoided by the web developer.
   </p>
   <p>
     JavaScript and reflows are two operations happening in the main thread, in the event
@@ -217,6 +220,10 @@ CSS2:
      don't interact with the DOM, layout or anything that could have an impact on the main thread.
      In some special scenarios, gecko (and only gecko) spins the event loop in the middle of a sync
      JS call (sync XHR and window.alert()), because Firefox Desktop has only one event loop.</em></p>
+
+ <p><em>I mentionned that drawing happens in the main thread. It's true, but compositing happens in a different
+     thread, and soon, Firefox OS will also support scrolling in a different thread, which will make scrolling
+     possible even if the event loop is blocked.</em></p>
 
 </section>
 
