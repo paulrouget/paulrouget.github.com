@@ -67,13 +67,13 @@ standalone: true
   </p>
   <p>
     Operations are executed sequentially. One after the other. JavaScript functions don't run in parallel
-    <code>setTimeout(callback, 10);foobar();</code> If <code>foobar</code> takes 100ms, <code>callback</code>
+    <code>setTimeout(callback, 10); foobar();</code> If <code>foobar</code> takes 100ms, <code>callback</code>
     will be only executed after these 100ms. Because <code>foobar</code> blocks the event loop. The timeout event can't be
     treated.
   </p>
   <p>
     If an operation takes more than 16 milliseconds (1000ms / 60), gecko won't
-    be able to draw at 60FPS. A frame will be skipped. Ideally, no operation
+    be able to draw at 60FPS. A frame will be skipped. Ideally, no operations
     should take more than 16ms. It's not always possible (because the developer
     doesn't control all the things happening in the event loop, it's sometimes
     gecko's responsability), but with a good understanding of the event loop,
@@ -84,7 +84,7 @@ standalone: true
     loop (so they can force gecko to skip a frame).
   </p>
   <p>JavaScript can be slow for many reasons. Because of a big loop, because of
-    DOM operations, because of long synchronous calls like localStorage).
+    DOM operations, because of long synchronous calls like localStorage.
     Making sure these JS "run to completion" don't block the event loop for too
     long is important.
   </p>
