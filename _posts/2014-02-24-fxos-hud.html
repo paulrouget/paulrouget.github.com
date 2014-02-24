@@ -58,8 +58,8 @@ standalone: true
     "painting the screen is needed", "mouse moved", "the user scrolled", …
   </p>
   <p>Gecko will consume the oldest event and execute code. If there is a JS callback
-    to execute (<code>addEventListener("click", onClick)</code>, gecko will
-    run the callback (<code>onClick</code>) <strong>to completion</strong>.
+    to execute, like <code>addEventListener("click", onClick)</code>, gecko will
+    run the callback <code>onClick</code> <strong>to completion</strong>.
     When the JS code is executed, gecko will consume the next event.
     Maybe it's time to update the page on the screen. Gecko will then draw.
   </p>
