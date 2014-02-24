@@ -11,7 +11,7 @@ standalone: true
 
 <em>
   Reaching 60 FPS, what is the event loop, what are reflows,
-  and how to make you mobile app smooth.
+  and how to make your mobile app smooth.
 </em>
 
 
@@ -46,7 +46,7 @@ standalone: true
 </section>
 
 <section>
-  <h2>What is the event lopp?</h2>
+  <h2>What is the event loop?</h2>
   <p>
     Any layout engine (Gecko, Webkit, …) is driven by an event loop.
   </p>
@@ -62,7 +62,7 @@ standalone: true
   <p>Gecko will consume the oldest event and execute code. If there is a JS callback
     to execute, like <code>addEventListener("click", onClick)</code>, gecko will
     run the callback <code>onClick</code> **to completion**.
-    When the JS code is executed, gecko will consume the next event.
+    When the JS code has fully completed being executed, gecko will consume the next event.
     Maybe it's time to update the page on the screen. Gecko will then draw.
   </p>
   <p>
@@ -74,14 +74,14 @@ standalone: true
   <p>
     If an operation takes more than 16 milliseconds (1000ms / 60), gecko won't
     be able to draw at 60FPS. A frame will be skipped.
-    A web developer needs to make sure that no operations will take more than 16ms.
+    <strong>A web developer needs to make sure that no operations will take more than 16ms.</strong>
   </p>
   <p>
-    JavaScript and reflows are 2 operations happening in the main thread, in the event
+    JavaScript and reflows are two operations happening in the main thread, in the event
     loop (so they can force gecko to skip a frame).
   </p>
   <p>JavaScript can be slow for many reasons. Because of a big loop, because of
-    DOM operations, because of long synchronous calls like localStorage, …).
+    DOM operations, because of long synchronous calls like localStorage).
     Making sure these JS "run to completion" don't block the event loop for too
     long is important.
   </p>
@@ -98,7 +98,7 @@ standalone: true
     size or position of a node, a node is added/removed from the page.
   </p>
   <p>When CSS and JS change the layout, a reflow is not
-    immediatly triggered. The layout is flagged as "invalid" (flagging is fast),
+    immediately triggered. The layout is flagged as "invalid" (flagging is fast),
     BUT, at some point, gecko has to reflow: right before drawing the page, or
     if a JS code requests the size/position of a node.
   </p>
