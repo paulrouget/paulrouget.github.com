@@ -227,14 +227,15 @@ CSS2:
     on more tools to make hunting performance issues easier, but in the meantime the Firefox OS developer HUD
     will help you track lags and reflows.
   </p>
+</section>
 
-  <hr>
+<section>
   <p><em>PS: I said that JS functions don't run in parallel. It's not true for Web Workers, but workers
      don't interact with the DOM, layout or anything that could have an impact on the main thread.
      In some special scenarios, gecko (and only gecko) spins the event loop in the middle of a sync
      JS call (sync XHR and window.alert()), because Firefox Desktop has only one event loop.</em></p>
 
- <p><em>I mentionned that drawing happens in the main thread. It's true, but compositing happens in a different
+ <p><em>I mentioned that drawing happens in the main thread. It's true, but compositing happens in a different
      thread, and soon, Firefox OS will also support scrolling in a different thread, which will make scrolling
      possible even if the event loop is blocked.</em></p>
 
@@ -250,5 +251,6 @@ CSS2:
   .highlight {
     padding: 10px;
     background-color: #FEF8E7;
+    margin: 20px 0;
   }
 </style>
