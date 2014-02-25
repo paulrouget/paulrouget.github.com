@@ -96,12 +96,12 @@ standalone: true
     the size of an element on the page. Reflows happen in the main thread, they
     block the event loop. And again, can make gecko skip frames.
   </p>
-  <p>There are different reasons why a reflow
-    is executed: page is resized, a CSS property or a JS function the
+  <p>There are different reasons why a reflow will be necessary:
+    page is resized, a CSS property or a JS function the
     size or position of a node, a node is added/removed from the page.
   </p>
   <p>When CSS and JS change the layout, a reflow is not
-    immediately triggered. The layout is flagged as "invalid" (flagging is fast),
+    immediately triggered. The layout is flagged as "dirty" (invalid).
     BUT, at some point, gecko has to reflow: right before drawing the page, or
     if a JS code requests the size/position of a node.
   </p>
@@ -153,18 +153,19 @@ CSS2:
     require the layout engine to compute the geometry of the button (and conclude
     that nothing needs to be moved), CSS2 will only require painting a red rectangle.
   </p>
-  <p><strong>Painting is much cheaper than reflowing.</strong></p>
+  <p><strong>Painting is always cheaper than reflowing + painting.</strong></p>
   <p>
     This is why it's recommended to use CSS transforms instead
-    of regular CSS properties. For example, <code>transform: translate(20px,40px)</code>
-    will not require a reflow: <ul>
-      <li> 1) position on screen and size of the transformed
-              element won't affect other elements (rotation/scaling/translating are painting
-              operations, there's not shift/collision/compensation/…)</li>
-      <li> 2) the DOM will <strong>not</strong> reflect the actual position of the element
+    of regular CSS properties like top/left/margins to move elements.
+    For example, <code>transform: translate(20px,40px)</code>
+    will not require a reflow: <ol>
+      <li> position on screen and size of the transformed
+           element won't affect other elements (rotation/scaling/translating are painting
+           operations, there's not shift/collision/compensation/…)</li>
+      <li> the DOM will <strong>not</strong> reflect the actual position of the element
            (clientHeight, clientWidth, offsetWidth, offsetHeight,
            getBoundingClientRect()), so no need to do any computation on the main
-           thread.</ul>
+           thread.</ol>
   </p>
 </section>
 
@@ -193,12 +194,13 @@ CSS2:
       <li>Enable <code>Reflows</code> and <code>Jank</code></li>
     </ul>
     Jank is "event loop lag". You can set the lag threshold. Ideally, you should
-    not get any jank > 20ms. But from our experience, you'll get lags > 100ms.
-    Better to start with 100ms and narrow down as you hunt the lags.
+    not get any jank > 20ms. But from our experience, non-optimized apps often show
+    lags > 100ms. Better to start with 100ms and narrow down as you hunt the lags.
   </p>
   <p>
     If you want to enable these tools for certified apps, you'll need to turn off this
-    preference (in prefs.js): <code>devtools.debugger.forbid-certified-apps > false</code>.
+    preference (in prefs.js): <code>devtools.debugger.forbid-certified-apps > false</code> (this
+    won't be necessary in a near future).
   </p>
 
   <p>
