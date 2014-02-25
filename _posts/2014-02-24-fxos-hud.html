@@ -42,7 +42,7 @@ standalone: true
     Each process has its own event loop.
     The event loop runs in the main thread.
     There are other threads running (for network requests, composition, media decoding, …),
-    but the UI of the app is rendered in the main process.
+    but the UI of the app is rendered in the main thread.
     So if the event loop is blocked, the UI of the app is frozen.
     This is barely noticeable on desktop browsers, but with Firefox OS (and on any mobile
     device in general) any slow operation in the event loop will make the app choppy.
