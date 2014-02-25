@@ -237,12 +237,12 @@ CSS2:
      JS call (sync XHR and window.alert()), because Firefox Desktop has only one event loop.</em></p>
 
  <p><em>I mentioned that drawing happens in the main thread. It's true, but compositing happens in a different
-     thread, and soon, Firefox OS will also support scrolling in a different thread, which will make scrolling
-     possible even if the event loop is blocked.</em></p>
+     thread, and soon, Firefox OS will also support scrolling in a different thread (async pan and zoom),
+     which will make scrolling possible even if the event loop is blocked.</em></p>
 
  <p><em>"Interruptible reflows" don't just get delayed, but also don't have to
-     fully update the layout. When gecko paints, gecko tries to update
-     the layout, but if it takes too long we'll just give up and paint
+     fully update the layout. When gecko paints, it tries to update
+     the layout, but if it takes too long it will just give up and paint
      whatever we have so far.</em></p>
 
 </section>
