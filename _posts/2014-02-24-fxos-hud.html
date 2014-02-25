@@ -70,10 +70,6 @@ standalone: true
     gecko's responsability), but with a good understanding of the event loop,
     many slow operations can be avoided by the web developer.
   </p>
-  <p>
-    JavaScript and reflows are two operations happening in the main thread, in the event
-    loop (so they can force gecko to skip a frame).
-  </p>
   <p>JavaScript can be slow for many reasons. Because of a big loop, because of
     DOM operations, because of long synchronous calls like localStorage.
     Making sure these JS "run to completion" don't block the event loop for too
