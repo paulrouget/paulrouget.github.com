@@ -102,7 +102,7 @@ standalone: true
     the size of an element on the page. Reflows happen in the main thread, they
     block the event loop. And again, can make gecko skip frames.
   </p>
-  <p>There are different reasons why a reflow will be necessary:
+  <p>There are various reasons why a reflow will be necessary:
     page is resized, a CSS property or a JS function change the
     size or position of a node, a node is added/removed from the page (DOM operations).
   </p>
@@ -178,6 +178,7 @@ CSS2:
 
 <section class="highlight">
   <h2>Detecting event loop lag and reflows</h2>
+  <img src="/assets/posts/hud2.png">
   <p>On slow CPUs, making sure the event loop doesn't get blocked for too long and
     reflows don't happen too often is critical.
   </p>
