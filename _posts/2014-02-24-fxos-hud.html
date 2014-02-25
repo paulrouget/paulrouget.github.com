@@ -10,12 +10,14 @@ standalone: true
 <h1>Firefox OS: tracking reflows and event loop lags</h1>
 
 <em>
-  Reaching 60 FPS, what is the event loop, what are reflows,
-  and how to make your mobile app smooth.
+  In Firefox OS, we want apps to run at 60FPS. To get there,
+  it's important to avoid blocking the event loop for too long.
+  This article explains what is the event loop, what are reflows
+  and how to spot event loop lags and reflows 
 </em>
 
-
 <img style="background:linear-gradient(to bottom,white,black);padding:10px" src="/assets/posts/hud.png">
+<em><strong>Developer HUD</strong>: new tools builtin in Firefox OS 1.4 
 
 <section>
   <p>
@@ -66,7 +68,7 @@ standalone: true
     Maybe it's time to update the page on the screen. Gecko will then draw.
   </p>
   <p>
-    Operations are executed sequentially. One after the other. JavaScript functions don't run in parallel
+    Operations are executed sequentially. One after the other. JavaScript functions don't run in parallel:
     <code>setTimeout(callback, 10); foobar();</code> If <code>foobar</code> takes 100ms, <code>callback</code>
     will be only executed after these 100ms. Because <code>foobar</code> blocks the event loop. The timeout event can't be
     treated.
@@ -97,8 +99,8 @@ standalone: true
     block the event loop. And again, can make gecko skip frames.
   </p>
   <p>There are different reasons why a reflow will be necessary:
-    page is resized, a CSS property or a JS function the
-    size or position of a node, a node is added/removed from the page.
+    page is resized, a CSS property or a JS function change the
+    size or position of a node, a node is added/removed from the page (DOM operationsDOM operations).
   </p>
   <p>When CSS and JS change the layout, a reflow is not
     immediately triggered. The layout is flagged as "dirty" (invalid).
@@ -125,7 +127,7 @@ standalone: true
     absolutely necessary, because JS code needs to get the actual geometry
     of a node). Some reflows don't have to happen right away.
     <strong>Interruptible reflows</strong> can be delayed (usually to let the event
-    loop run to not block the main thread).
+    loop run to not block the main thread, and draw early).
   </p>
   <p>
     It's important to differentiate <strong>painting</strong> operations and <strong>reflows</strong>.
@@ -179,7 +181,7 @@ CSS2:
     for Firefox OS to show when reflows happen in an app, and when the
     event loop gets blocked for too long.
   </p>
-  <p>To enable them, in recent versions of Firefox OS:
+  <p>To enable them, in recent versions of Firefox OS (1.4+):
     <ul>
       <li>Enable developer tools:
         <ul>
