@@ -37,19 +37,6 @@ standalone: true
 <hr>
 
 <section>
-  <p>
-    Each Firefox OS app runs in its own process.
-    Each process has its own event loop.
-    The event loop runs in the main thread.
-    There are other threads running (for network requests, composition, media decoding, …),
-    but the UI of the app is rendered in the main thread.
-    So if the event loop is blocked, the UI of the app is frozen.
-    This is barely noticeable on desktop browsers, but with Firefox OS (and on any mobile
-    device in general) any slow operation in the event loop will make the app choppy.
-  </p>
-</section>
-
-<section>
   <h2>What is the event loop?</h2>
   <p>
     Any layout engine (Gecko, Webkit, …) is driven by an event loop.
@@ -95,6 +82,21 @@ standalone: true
 </section>
 
 <section>
+  <h2>event loops in Firefox OS</h2>
+  <p>
+    Each Firefox OS app runs in its own process.
+    Each process has its own event loop.
+    The event loop runs in the main thread.
+    There are other threads running (for network requests, composition, media decoding, …),
+    but the UI of the app is rendered in the main thread.
+    So if the event loop is blocked, the UI of the app is frozen.
+    This is barely noticeable on desktop browsers, but with Firefox OS (and on any mobile
+    device in general) any slow operation in the event loop will make the app choppy.
+  </p>
+</section>
+
+
+<section>
   <h2>Reflows</h2>
   <p style="text-align:center">
     <video style="width:100%" controls src="http://paulrouget.com/takeoff2014/reflow.webm"></video>
@@ -106,7 +108,7 @@ standalone: true
   </p>
   <p>There are different reasons why a reflow will be necessary:
     page is resized, a CSS property or a JS function change the
-    size or position of a node, a node is added/removed from the page (DOM operationsDOM operations).
+    size or position of a node, a node is added/removed from the page (DOM operations).
   </p>
   <p>When CSS and JS change the layout, a reflow is not
     immediately triggered. The layout is flagged as "dirty" (invalid).
@@ -145,7 +147,8 @@ standalone: true
 CSS1:
 .button:hover {
   border: 1px solid red;
-  margin: -1px; /* to compensate the new border */
+  /* to compensate the new border: */
+  margin: -1px;
 }
 
 CSS2:
