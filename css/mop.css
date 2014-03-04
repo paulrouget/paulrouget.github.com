@@ -14,8 +14,13 @@ body > article {
   padding: 20px 10px 0;
 }
 
+body > article video,
 body > article img {
   max-width: 100%;
+}
+
+hr {
+  border-width: 0 0 1px 0;
 }
 
 footer {
