@@ -9,7 +9,7 @@ mozilla: true
 
 # Some unusual keybindings I use:
 
-- tmux:
+## tmux:
 
     # Shift Left/Right to switch window in tmux
     bind-key -n S-Left previous-window
@@ -18,14 +18,14 @@ mozilla: true
     # https://github.com/dequis/tmux-url-select
     bind o run /home/paul/bin/tmux-url-select.pl
 
-- Firefox:
+## Firefox:
 
     # Vim controls:
     # https://addons.mozilla.org/firefox/addon/vimfx/
     Ctrl-e / Ctrl-y to scroll
     Ctrl-O to highlight then open a link
 
-- Mouse via keyboard:
+## Mouse via keyboard:
 
     # Via xdotool & xbindkeys
     Win-arrow to move a window
@@ -36,24 +36,24 @@ mozilla: true
     F2 middle click
     F3 right click
 
-- Vim:
+## Vim:
 
-    " Just &lt;Tab> to switch buffers
-    nmap &lt;Tab> :bn&lt;CR>
-    nmap &lt;S-Tab> :bp&lt;CR>
+    " Just <Tab> to switch buffers
+    nmap <Tab> :bn<CR>
+    nmap <S-Tab> :bp<CR>
     " scroll but don't change the cursor position on screen
-    nnoremap &lt;C-e> j&lt;C-e>
-    nnoremap &lt;C-y> k&lt;C-y>
+    nnoremap <C-e> j<C-e>
+    nnoremap <C-y> k<C-y>
     " visual command line
-    nnoremap ; :&lt;c-f>
-    " quick move via &lt;space>
-    nmap &lt;space> &lt;Plug>(easymotion-s2)
+    nnoremap ; :<c-f>
+    " quick move via <space>
+    nmap <space> <Plug>(easymotion-s2)
 
 - Mutt:
 
     # Archive one email
-    macro index a "s=archives&lt;enter>y"
+    macro index a "s=archives<enter>y"
     # Archive whole thread
-    &lt;enter-command>unset resolve&lt;Enter>&lt;tag-thread>&lt;enter-command>set resolve&lt;Enter>&lt;tag-prefix>&lt;save-message>=archives&lt;Enter>y
+    <enter-command>unset resolve<Enter><tag-thread><enter-command>set resolve<Enter><tag-prefix><save-message>=archives<Enter>y
     # Delete whole thread
-    &lt;enter-command>unset resolve&lt;Enter>&lt;tag-thread>&lt;enter-command>set resolve&lt;Enter>&lt;tag-prefix>&lt;delete-message>
+    <enter-command>unset resolve<Enter><tag-thread><enter-command>set resolve<Enter><tag-prefix><delete-message>
