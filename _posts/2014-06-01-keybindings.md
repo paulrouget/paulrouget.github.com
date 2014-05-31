@@ -9,9 +9,6 @@ mozilla: true
 
 # Some unusual keybindings I use:
 
-kramdown
-: A Markdown-superset converter
-
 ## tmux:
 
 ``` shell
