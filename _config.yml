@@ -1,5 +1,6 @@
 permalink: /
 pygments: true
+markdown: kramdown
 prose:
   rooturl: "_posts"
   metadata:
