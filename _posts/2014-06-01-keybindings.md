@@ -4,7 +4,6 @@ title: "keybindings"
 permalink: e/keybindings
 comments: true
 standalone: true
-markdown: kramdown
 mozilla: true
 ---
 
