@@ -9,6 +9,9 @@ mozilla: true
 
 # Some unusual keybindings I use:
 
+kramdown
+: A Markdown-superset converter
+
 ## tmux:
 
 ``` shell
@@ -45,25 +48,25 @@ F3 right click
 ## Vim:
 
 ``` shell
-" Just <Tab> to switch buffers
-nmap <Tab> :bn<CR>
-nmap <S-Tab> :bp<CR>
+" Just &lt;Tab> to switch buffers
+nmap &lt;Tab> :bn&lt;CR>
+nmap &lt;S-Tab> :bp&lt;CR>
 " scroll but don't change the cursor position on screen
-nnoremap <C-e> j<C-e>
-nnoremap <C-y> k<C-y>
+nnoremap &lt;C-e> j&lt;C-e>
+nnoremap &lt;C-y> k&lt;C-y>
 " visual command line
-nnoremap ; :<c-f>
-" quick move via <space>
-nmap <space> <Plug>(easymotion-s2)
+nnoremap ; :&lt;c-f>
+" quick move via &lt;space>
+nmap &lt;space> &lt;Plug>(easymotion-s2)
 ```
 
 ## Mutt:
 
 ``` shell
 # Archive one email
-macro index a "s=archives<enter>y"
+macro index a "s=archives&lt;enter>y"
 # Archive whole thread
-<enter-command>unset resolve<Enter><tag-thread><enter-command>set resolve<Enter><tag-prefix><save-message>=archives<Enter>y
+&lt;enter-command>unset resolve&lt;Enter>&lt;tag-thread>&lt;enter-command>set resolve&lt;Enter>&lt;tag-prefix>&lt;save-message>=archives&lt;Enter>y
 # Delete whole thread
-<enter-command>unset resolve<Enter><tag-thread><enter-command>set resolve<Enter><tag-prefix><delete-message>
+&lt;enter-command>unset resolve&lt;Enter>&lt;tag-thread>&lt;enter-command>set resolve&lt;Enter>&lt;tag-prefix>&lt;delete-message>
 ```
