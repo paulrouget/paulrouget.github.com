@@ -1,5 +1,5 @@
 permalink: /
-pygments: true
+highlighter: true
 markdown: kramdown
 prose:
   rooturl: "_posts"
