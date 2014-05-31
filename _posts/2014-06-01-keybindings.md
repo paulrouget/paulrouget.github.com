@@ -57,11 +57,13 @@ nnoremap ; :<c-f>
 nmap <space> <Plug>(easymotion-s2)
 ```
 
-- Mutt:
+## Mutt:
 
-    # Archive one email
-    macro index a "s=archives<enter>y"
-    # Archive whole thread
-    <enter-command>unset resolve<Enter><tag-thread><enter-command>set resolve<Enter><tag-prefix><save-message>=archives<Enter>y
-    # Delete whole thread
-    <enter-command>unset resolve<Enter><tag-thread><enter-command>set resolve<Enter><tag-prefix><delete-message>
+```shell
+# Archive one email
+macro index a "s=archives<enter>y"
+# Archive whole thread
+<enter-command>unset resolve<Enter><tag-thread><enter-command>set resolve<Enter><tag-prefix><save-message>=archives<Enter>y
+# Delete whole thread
+<enter-command>unset resolve<Enter><tag-thread><enter-command>set resolve<Enter><tag-prefix><delete-message>
+```
