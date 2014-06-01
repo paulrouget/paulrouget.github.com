@@ -1,0 +1,78 @@
+---
+layout: post2
+title: "keybindings"
+permalink: e/keybindings
+comments: true
+mozilla: true
+---
+
+<h1>Some custom keybindings:</h1>
+
+<h2>tmux:</h2>
+
+<pre>
+<span class="comment"># Shift Left/Right to switch windows in tmux</span>
+<span class="comment"># without the tmux prefix</span>
+bind-key -n S-Left previous-window
+bind-key -n S-Right next-window
+<span class="comment"># Ctrl-prefix-o to highlight and open URLs</span>
+<span class="comment"># https://github.com/dequis/tmux-url-select</span>
+bind o run /home/paul/bin/tmux-url-select.pl
+</pre>
+
+<h2>Mouse via keyboard:</h2>
+
+<pre>
+<span class="comment"># Because the new Thinkpad "clickpad"</span>
+<span class="comment"># is a joke. Via xdotool & xbindkeys:</span>
+Win-arrow to move a window
+Ctrl-Win-arrow to resize a window
+Shift-Win-arrow to move mouse
+F1 left click
+F2 middle click
+F3 right click
+</pre>
+
+<h2>Vim:</h2>
+
+<pre>
+<span class="comment">" Just &lt;Tab> to switch buffers</span>
+nmap &lt;Tab> :bn&lt;CR>
+nmap &lt;S-Tab> :bp&lt;CR>
+<span class="comment">" scroll but don't change the cursor position on screen</span>
+nnoremap &lt;C-e> j&lt;C-e>
+nnoremap &lt;C-y> k&lt;C-y>
+<span class="comment">" visual command line</span>
+nnoremap ; :&lt;c-f>
+<span class="comment">" quick move via &lt;space></span>
+nmap &lt;space> &lt;Plug>(easymotion-s2)
+<span class="comment">" quick save in insert mode</span>
+imap zz &lt;Esc>:w&lt;CR>
+</pre>
+
+<h2>Firefox:</h2>
+
+<pre>
+<span class="comment"># Vim controls, via vimfx (I don't want the full-blown vimperator)</span>
+<span class="comment"># https://addons.mozilla.org/firefox/addon/vimfx/</span>
+Ctrl-e / Ctrl-y to scroll
+gg / G for home / end
+Ctrl-O to highlight then open a link
+</pre>
+
+<h2>Mutt:</h2>
+
+<pre>
+<span class="comment"># Archive one email</span>
+macro index a "s=archives&lt;enter>y"
+<span class="comment"># Archive whole thread</span>
+&lt;enter-command>unset resolve \
+  &lt;Enter>&lt;tag-thread> \
+  &lt;enter-command>set resolve \
+  &lt;Enter>&lt;tag-prefix> \
+  &lt;save-message>=archives&lt;Enter>y
+</pre>
+
+<style>
+.comment { color:grey }
+</style>

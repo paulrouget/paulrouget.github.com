@@ -14,9 +14,16 @@ body > article {
   padding: 20px 10px 0;
 }
 
+body > article pre,
 body > article video,
 body > article img {
   max-width: 100%;
+}
+
+body > article pre {
+  overflow-x: auto;
+  background-color: #F4F4F4;
+  padding: 10px; 
 }
 
 hr {
