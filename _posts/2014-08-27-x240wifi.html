@@ -14,7 +14,7 @@ mozilla: false
   To check what is your wireless chipset: <code>lspci | grep Wireless</code>. If it's an Intel 7260.
   Check what firware is used: <code>dmesg | grep "iwlwifi .* loaded firmware version"</code> (Don't trust <code>modeinfo</code>, it's broken).
   If you don't see any output, reboot. If the firmare version is <strong>22.24.8.0</strong>, you have firmware version 8. Which is terribly buggy.
-  You want to use version 7. To do so, back-up <code>/lib/firmware/iwlwifi-7260-8.ucode</strong>, and then delete it. Reboot.
+  You want to use version 7. To do so, back-up <code>/lib/firmware/iwlwifi-7260-8.ucode</code>, and then delete it. Reboot.
 </p>
 
 <p>More info:</p>
