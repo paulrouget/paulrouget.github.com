@@ -1,0 +1,27 @@
+---
+layout: post2
+title: "Intel 7260 WiFi issues (thinkpad 240)"
+permalink: e/x240wifi
+comments: false
+mozilla: false
+standalone: true
+---
+
+<h1>Intel 7260 WiFi issues (thinkpad 240)</h1>
+
+<p>Getting disconnected often? Slow connection? Check this out:</p>
+
+<p>
+  To check what is your wireless chipset: <code>lspci | grep Wireless</code>. If it's an Intel 7260.
+  Check what firware is used: <code>dmesg | grep "iwlwifi .* loaded firmware version"</code> (Don't trust <code>modeinfo</code>, it's broken).
+  If you don't see any output, reboot. If the firmare version is <code>22.24.8.0</code>, you have firmware version 8. Which is terribly buggy.
+  You want to use version 7. To do so, back-up /lib/firmware/iwlwifi-7260-8.ucode, and then delete it. Reboot.
+</p>
+
+<p>More info:</p>
+
+<ul>
+  <li><a href="https://bugs.launchpad.net/ubuntu/+source/linux-firmware/+bug/1293569">bug 1354975</a>
+  <li><a href="https://bugs.launchpad.net/ubuntu/+source/linux-firmware/+bug/1354975">bug 1293569</a>
+</ul>
+
