@@ -130,7 +130,6 @@ hr { margin-bottom:1.625em; }
 #comments.showme {opacity: 1;}
 
 q, .quote {
-  padding: 20px 40px 20px 60px;
   position: relative;
   background-color: #EEEEEE;
   border-radius: 10px;
