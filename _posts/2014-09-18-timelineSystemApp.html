@@ -1,0 +1,20 @@
+---
+layout: post2
+title: "(video) DevTools Timeline and Firefox OS"
+permalink: e/timelineDevtools
+comments: false
+mozilla: true
+standalone: true
+---
+
+<p>Just thought I'd share that. We recently landed a very basic timeline in the Firefox DevTools.
+  It is basic. But already useful, especially to debug Firefox OS apps. For example today, we were
+  looking at the System App and realized that the main thread was never idle. Looking at the timeline,
+  we realized that a restyle was triggered many many times per seconds, even if nothing was happening
+  on the screen. By tweaking the DOM with the inspector, we figured it was coming from a infinite CSS
+  animation that was display:none (see <a href="http://bugil.la/962594">bug 962594</a>).</p>
+
+<p>We are working hard to build better performance tools. Expect to see better tools coming in the coming
+  months. <a href="https://groups.google.com/d/msg/mozilla.dev.gaia/IT-M42uGT40/_cV31uMY9fcJ">More info about this new timeline tool here</a>.</p>
+
+<video src="/assets/posts/systemAppBug.ogv" controls></video>
