@@ -1,0 +1,57 @@
+---
+layout: post2
+title: "Firefox OS: Upgrading ZTE Open C"
+permalink: e/openc
+comments: true
+mozilla: true
+standalone: true
+---
+
+<h1>How to upgrade a ZTE Open C (French/Europe/US versions)</h1>
+
+<p>I use Windows for part 1 (required), and Linux or Mac for part 2.
+  I never tried part 2 with Windows.</p>
+
+<p>You need to install adb and fastboot on your computer.</p>
+
+<h2>1. Root the phone (Windows required)</h2>
+
+<p>Where did you buy your phone:</p>
+
+<ul>
+  <li>france? Use this link: <a href="http://www.ztefrance.com/downloads/Pack_root_du_ZTE_Open_C.zip">http://www.ztefrance.com/downloads/Pack_root_du_ZTE_Open_C.zip</a>. 2 zip files in one zip file: the update tool and the ROM;</li>
+  <li>europe or US? <a href="http://en.comebuy.com/developer-firefox-os-open-c.html">http://en.comebuy.com/developer-firefox-os-open-c.html</a>. 2 zip files to download: the update tool and the ROM.</li>
+</ul>
+
+<p>With `Open_C_upgrade_Tool`, flash the ROM. Common issue if it fails:</p>
+
+<ul>
+  <li>make sure your phone is charged (at least 10%)</li>
+  <li>remove SIM card and sdcard</li>
+  <li>make sure to select the right ROM directory</li>
+</ul>
+
+<p>Normally, now your phone is unlocked. To check, type: "adb shell id".
+If it says "root", good. If it says "shell", it didn't work.
+If "adb" doesn't work on Linux, you need to add a udev rule (google: "udev adb").</p>
+
+<h2>2. flash the version of Gecko and Gaia you want</h2>
+
+<p>The Open C is compatible with Mozilla's reference phone: The
+Flame. So you just need to download and flash Flame's builds:
+<a href="http://ftp.mozilla.org/pub/mozilla.org/b2g/">http://ftp.mozilla.org/pub/mozilla.org/b2g/</a>
+(no need to build B2G or Gaia yourself).</p>
+
+<p>At the moment, I recommend Firefox OS 2.1:
+  <a href="http://ftp.mozilla.org/pub/mozilla.org/b2g/nightly/latest-mozilla-aurora-flame/">http://ftp.mozilla.org/pub/mozilla.org/b2g/nightly/latest-mozilla-aurora-flame/</a>
+</p>
+
+<p>Download <code>b2g-34.0a2.en-US.android-arm.tar.gz</code> (gecko) and <code>gaia.zip</code> (gaia).</p>
+
+<p>Download the flash script: <a href="https://github.com/Mozilla-TWQA/B2G-flash-tool/blob/master/shallow_flash.sh">https://github.com/Mozilla-TWQA/B2G-flash-tool/blob/master/shallow_flash.sh</a></p>
+
+<p>On Mac and Cygwin: <code>./shallow_flash.sh -g gaia.zip -G b2g-XX.XX.en-US.android-arm.tar.gz</code></p>
+
+<p>On Linux: <code>./shallow_flash.sh -ggaia.zip -Gb2g-XX.XX.en-US.android-arm.tar.gz</code></p>
+
+<p>If you want to save your profile, use this tool: <a href="https://github.com/Mozilla-TWQA/B2G-flash-tool/blob/master/backup_restore_profile.sh">https://github.com/Mozilla-TWQA/B2G-flash-tool/blob/master/backup_restore_profile.sh</a></p>
