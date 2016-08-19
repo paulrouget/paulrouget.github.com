@@ -9,7 +9,7 @@ standalone: true
 
 # Servo binaries available via Homebrew
 
-See https://github.com/servo/homebrew-servo
+See [github.com/servo/homebrew-servo](https://github.com/servo/homebrew-servo)
 
     $ brew install servo/servo/servo-bin
     $ servo -w http://servo.org # See `servo --help`
@@ -22,7 +22,7 @@ Switch to older version (earliest version being 2016.08.19):
 
     $ brew switch servo-bin YYYY.MM.DD
 
-File issues specific to the Homebrew package [here](https://github.com/servo/homebrew-servo/issue),
-and Servo issues [here](https://github.com/servo/servo/issue).
+File issues specific to the Homebrew package [here](https://github.com/servo/homebrew-servo/issues),
+and Servo issues [here](https://github.com/servo/servo/issues).
 
 This package comes without browserhtml.
