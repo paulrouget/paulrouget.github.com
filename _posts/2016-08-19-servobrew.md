@@ -4,7 +4,6 @@ title: "Servo homebrew nightly buids"
 permalink: e/servobrew
 comments: false
 mozilla: true
-standalone: true
 ---
 
 # Servo binaries available via Homebrew
