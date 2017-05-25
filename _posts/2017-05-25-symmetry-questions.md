@@ -4,7 +4,6 @@ title: "Symmetry - questions"
 permalink: e/symmetry-questions
 comments: false
 mozilla: false
-standalone: true
 ---
 
 # Re: symmetry
