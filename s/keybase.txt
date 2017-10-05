@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/paulrouget
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://paulrouget.com
+  * I am paulrouget (https://keybase.io/paulrouget) on keybase.
+  * I have a public key ASAWWP6PzzMpRAQkISqnsHFCSgRg27zYanFxQXYpgn5TlQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01201658fe8fcf3329440424212aa7b071424a0460dbbcd86a7171417629827e53950a",
+      "host": "keybase.io",
+      "kid": "01201658fe8fcf3329440424212aa7b071424a0460dbbcd86a7171417629827e53950a",
+      "uid": "6cc75d4338144b99b8a90d3859845119",
+      "username": "paulrouget"
+    },
+    "merkle_root": {
+      "ctime": 1507163180,
+      "hash": "8f16993c0ea679a909ec845f6161688a14c3ad5e01eccd056754ee80d5377780781de26ef2ba7d5e5125c8278e9029be5b623d89d49834700955cd2a673a9979",
+      "hash_meta": "c83b2ace7304c023590e89715b69c494106a9425650da7ab2d00a57868dfac7d",
+      "seqno": 1503520
+    },
+    "service": {
+      "hostname": "paulrouget.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.33"
+  },
+  "ctime": 1507163188,
+  "expire_in": 504576000,
+  "prev": "e0db5d8937649db2321e31c10ea04f1c474752868bf3fdf9b9a37294c84ad7b2",
+  "seqno": 7,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgFlj+j88zKUQEJCEqp7BxQkoEYNu82GpxcUF2KYJ+U5UKp3BheWxvYWTFA0d7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMTY1OGZlOGZjZjMzMjk0NDA0MjQyMTJhYTdiMDcxNDI0YTA0NjBkYmJjZDg2YTcxNzE0MTc2Mjk4MjdlNTM5NTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMTY1OGZlOGZjZjMzMjk0NDA0MjQyMTJhYTdiMDcxNDI0YTA0NjBkYmJjZDg2YTcxNzE0MTc2Mjk4MjdlNTM5NTBhIiwidWlkIjoiNmNjNzVkNDMzODE0NGI5OWI4YTkwZDM4NTk4NDUxMTkiLCJ1c2VybmFtZSI6InBhdWxyb3VnZXQifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MDcxNjMxODAsImhhc2giOiI4ZjE2OTkzYzBlYTY3OWE5MDllYzg0NWY2MTYxNjg4YTE0YzNhZDVlMDFlY2NkMDU2NzU0ZWU4MGQ1Mzc3NzgwNzgxZGUyNmVmMmJhN2Q1ZTUxMjVjODI3OGU5MDI5YmU1YjYyM2Q4OWQ0OTgzNDcwMDk1NWNkMmE2NzNhOTk3OSIsImhhc2hfbWV0YSI6ImM4M2IyYWNlNzMwNGMwMjM1OTBlODk3MTViNjljNDk0MTA2YTk0MjU2NTBkYTdhYjJkMDBhNTc4NjhkZmFjN2QiLCJzZXFubyI6MTUwMzUyMH0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJwYXVscm91Z2V0LmNvbSIsInByb3RvY29sIjoiaHR0cDoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMzMifSwiY3RpbWUiOjE1MDcxNjMxODgsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJwcmV2IjoiZTBkYjVkODkzNzY0OWRiMjMyMWUzMWMxMGVhMDRmMWM0NzQ3NTI4NjhiZjNmZGY5YjlhMzcyOTRjODRhZDdiMiIsInNlcW5vIjo3LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQBg8FdGKS4Mco/dp3zvaCsDFEOrEHhNLyDpEHFlFwjjmttFFJeMpKpMJeDGRi8yhRTjXmGb5UkwBAXqYBCkSRw2oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCCgTODezwj7gljwnPFs7K7mIlNtefK4Nuv91s00uVQ+baN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/paulrouget
+
+==================================================================
