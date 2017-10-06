@@ -29,8 +29,16 @@
         to {background-color: yellow;}
       }
     </style>
+    <script>
+      var i = 0;
+      setInterval(() => {
+        document.querySelector("h1").textContent = i++;
+      }, 250);
+    </script>
   </head>
   <body>
+
+    <h1></h1>
 
     <div></div>
 
