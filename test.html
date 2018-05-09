@@ -3,39 +3,28 @@
 <html>
   <head>
     <style> 
+      body {
+        margin: 0;
+      }
+
       div {
-        width: 100px;
-        height: 100px;
-        background-color: red;
-        x-animation-name: example;
-        x-animation-duration: 4s;
+        width: 10px;
+        height: 10px;
+        background: red;
+        position: absolute;
       }
 
-      p {
-        margin: 4000px;
-      }
-
-      @keyframes example {
-        from {background-color: red;}
-        to {background-color: yellow;}
-      }
     </style>
     <script>
-      var i = 0;
-      setInterval(() => {
-        document.querySelector("h1").textContent = i++;
-        document.querySelector("div").style.marginLeft = 5 * i + "px";
-      }, 1000);
+      window.addEventListener("click", e => {
+        var div = document.querySelector("div");
+        div.style.top = e.clientY + "px";
+        div.style.left = e.clientX + "px";
+      });
     </script>
   </head>
   <body>
-
-    <h1></h1>
-
     <div></div>
-
-    <p>far</p>
-
   </body>
 </html>
 
