@@ -3,15 +3,20 @@
 <html>
   <head>
     <style> 
-      body {
-        margin: 0;
-      }
+body {
+  margin: 0;
+}
 
       div {
         width: 10px;
         height: 10px;
         background: red;
         position: absolute;
+        transition: transform 1s;
+      }
+
+      div.foo {
+        transform: scale(10);
       }
 
     </style>
@@ -20,10 +25,12 @@
         var div = document.querySelector("div");
         div.style.top = e.clientY + "px";
         div.style.left = e.clientX + "px";
+        div.classList.toggle("foo");
       });
     </script>
   </head>
   <body>
+    <div></div>
     <pre>
 
 0
