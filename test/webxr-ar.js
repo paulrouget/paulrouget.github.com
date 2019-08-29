@@ -111,7 +111,8 @@ function main() {
       xrSession.updateRenderState({"baseLayer": xrLayer});
 
       setTimeout(() => {
-        xrSession.end();
+        console.log("ending...");
+        // xrSession.end();
       }, 10000);
 
       const vrCallback = (now, frame) => {
