@@ -110,6 +110,10 @@ function main() {
       const xrLayer = new XRWebGLLayer(xrSession, gl);
       xrSession.updateRenderState({"baseLayer": xrLayer});
 
+      setTimeout(() => {
+        xrSession.end();
+      }, 5000);
+
       const vrCallback = (now, frame) => {
           if (xrSession == null || !inVR) {
               return;
@@ -133,7 +137,9 @@ function main() {
       xrSession.requestAnimationFrame(vrCallback);
     }).catch((e) => alert(`failed ${e}`));
   };
-  // window.addEventListener('load', enterVR); //HACK
+  window.addEventListener('load', () => {
+    setTimeout(enterVR, 1000);
+  }); //HACK
 }
 
 
