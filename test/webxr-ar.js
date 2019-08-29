@@ -112,7 +112,7 @@ function main() {
 
       setTimeout(() => {
         xrSession.end();
-      }, 5000);
+      }, 10000);
 
       const vrCallback = (now, frame) => {
           if (xrSession == null || !inVR) {
