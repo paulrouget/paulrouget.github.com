@@ -112,7 +112,7 @@ function main() {
 
       setTimeout(() => {
         console.log("ending...");
-        // xrSession.end();
+        xrSession.end();
       }, 10000);
 
       const vrCallback = (now, frame) => {
