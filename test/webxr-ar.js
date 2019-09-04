@@ -139,7 +139,7 @@ function main() {
     }).catch((e) => alert(`failed ${e}`));
   };
   window.addEventListener('load', () => {
-    if (!navigator.xr.simulateUserActivation) {
+    if (navigator.xr.simulateUserActivation) {
       setTimeout(() => {
         navigator.xr.simulateUserActivation(enterVR);
       }, 1000);
