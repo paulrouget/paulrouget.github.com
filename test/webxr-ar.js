@@ -139,9 +139,14 @@ function main() {
     }).catch((e) => alert(`failed ${e}`));
   };
   window.addEventListener('load', () => {
-    if (navigator.xr.simulateUserActivation) {
+    console.log(navigator);
+    console.log(navigator.xr);
+    console.log(navigator.xr.simulateUserActivation);
+    console.log(navigator.xrtest);
+    console.log(navigator.xrtest.simulateUserActivation);
+    if (navigator.xrtest.simulateUserActivation) {
       setTimeout(() => {
-        navigator.xr.simulateUserActivation(enterVR);
+        navigator.xrtest.simulateUserActivation(enterVR);
       }, 1000);
     }
   }); //HACK
