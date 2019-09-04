@@ -140,7 +140,7 @@ function main() {
   };
   window.addEventListener('load', () => {
     if (!navigator.xr.simulateUserActivation) {
-      setTimeout(() {
+      setTimeout(() => {
         navigator.xr.simulateUserActivation(enterVR);
       }, 1000);
     }
