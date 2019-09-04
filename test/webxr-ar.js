@@ -139,7 +139,11 @@ function main() {
     }).catch((e) => alert(`failed ${e}`));
   };
   window.addEventListener('load', () => {
-    setTimeout(enterVR, 1000);
+    if (!navigator.xr.simulateUserActivation) {
+      setTimeout(() {
+        navigator.xr.simulateUserActivation(enterVR);
+      }, 1000);
+    }
   }); //HACK
 }
 
