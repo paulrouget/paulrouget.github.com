@@ -139,12 +139,7 @@ function main() {
     }).catch((e) => alert(`failed ${e}`));
   };
   window.addEventListener('load', () => {
-    console.log(XRTest);
-    if (window.XRTest) {
-      setTimeout(() => {
-        (new XRTest()).simulateUserActivation(enterVR);
-      }, 1000);
-    }
+    setTimeout(enterVR, 1000);
   }); //HACK
 }
 
