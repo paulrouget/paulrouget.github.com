@@ -1,36 +1,9 @@
----
-layout: nil
-title: Paul Rouget
----
 <!DOCTYPE html>
 
-<meta name="description" content="Paul Rouget's Blog">
-<meta name="author" content="Paul Rouget">
-
 <meta charset="utf8">
-<meta name="theme-color" content="#FFFFFF">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="alternate" type="application/atom+xml" href="/index.xml">
-
-<link rel="stylesheet" href="/css/mop.css">
-
 <title>Paul Rouget</title>
-
-<aside>
-  <p><a href="http://paulrouget.com"><img id="avatar" src="http://gravatar.com/avatar/a046f67399acec21282d784ac66cb009?s=160"></a>
-    Hi. I'm Paul Rouget (<a href="/s/contact">contact</a>). I work at <a href="http://mozilla.org">Mozilla</a>.
-    I write <a href="https://wiki.mozilla.org/DevTools">code</a>. I give talks. This is my blog (<a href="http://paulrouget.com/index.xml">rss</a>).
-  </p>
-  <hr>
-</aside>
-
-<article id="home">
-    <ul>
-        {% for post in site.posts limit:100 %}
-        {% if post.standalone == null %}
-        <li><time datetime="{{ post.date }}">{{ post.date | date_to_string }}</time><a href="{{ post.url }}">{{ post.title }}</a>
-        {% endif %}
-        {% endfor %}
-    </ul>
-</article>
+<pre>
+me@paulrouget.com | paul@mozilla.com
+<a href="http://linkedin.com/in/paulrouget">linkedin.com/in/paulrouget</a>
+</pre>
