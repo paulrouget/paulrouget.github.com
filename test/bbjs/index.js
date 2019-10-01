@@ -10,7 +10,7 @@ var createScene = async function() {
   var camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 4, 3, new BABYLON.Vector3(0, 1, 0), scene);
   camera.attachControl(canvas, true);
   scene.activeCamera.beta += 0.8;
-  var environment = scene.createDefaultEnvironment({ enableGroundShadow: true });
+  var environment = scene.createDefaultEnvironment({ groundTexture: "./backgroundGround.png", enableGroundShadow: true });
   environment.setMainColor(BABYLON.Color3.FromHexString("#74b9ff"))
   environment.ground.parent.position.y = 0;
   environment.ground.position.y = 0
