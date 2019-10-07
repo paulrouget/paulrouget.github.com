@@ -4,6 +4,7 @@ var xrSession;
 var xrReferenceSpace;
 var xr_frame;
 var enterVR;
+var restore;
 const canvas = document.querySelector('#canvas');
 
 main();
@@ -70,10 +71,11 @@ function main() {
 
   // Here's where we call the routine that builds all the
   // objects we'll be drawing.
-  const buffers = initBuffers(gl);
+  var buffers = initBuffers(gl);
 
   var then = 0;
 
+  restore = gl.getParameter(gl.FRAMEBUFFER_BINDING);
 
   // Draw the scene repeatedly
   function renderCallback(now) {
@@ -106,14 +108,26 @@ function main() {
         xrReferenceSpace = referenceSpace;
       })
       inVR = true;
+
+      setTimeout(() => {
+        if (inVR) {
+          console.log("ending...");
+          xrSession.end();
+        }
+      }, 15000);
+
+      xrSession.addEventListener("end", () => {
+        buffers = initBuffers(gl);
+        console.log("ended.");
+        inVR = false;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, restore);
+        requestAnimationFrame(renderCallback);
+      });
+
       // hand the canvas to the WebXR API
       const xrLayer = new XRWebGLLayer(xrSession, gl);
       xrSession.updateRenderState({"baseLayer": xrLayer});
-
-      // setTimeout(() => {
-      //   console.log("ending...");
-      //   xrSession.end();
-      // }, 10000);
 
       const vrCallback = (now, frame) => {
           if (xrSession == null || !inVR) {
@@ -131,16 +145,13 @@ function main() {
           then = now;
 
           // render scene
-      gl.bindFramebuffer(gl.FRAMEBUFFER, xrLayer.framebuffer);
+          gl.bindFramebuffer(gl.FRAMEBUFFER, xrLayer.framebuffer);
           renderVR(gl, programInfo, buffers, deltaTime);
       };
       // register callback
       xrSession.requestAnimationFrame(vrCallback);
     }).catch((e) => alert(`failed ${e}`));
   };
-  window.addEventListener('load', () => {
-    setTimeout(enterVR, 1000);
-  }); //HACK
 }
 
 
@@ -317,7 +328,6 @@ function drawScene(gl, programInfo, buffers, projectionMatrix, viewMatrix) {
 
   // Premultiply the view matrix
   mat4.multiply(modelViewMatrix, viewMatrix, modelViewMatrix);
-
 
   // Tell WebGL how to pull out the positions from the position
   // buffer into the vertexPosition attribute
