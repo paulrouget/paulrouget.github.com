@@ -110,10 +110,10 @@ function main() {
       const xrLayer = new XRWebGLLayer(xrSession, gl);
       xrSession.updateRenderState({"baseLayer": xrLayer});
 
-      setTimeout(() => {
-        console.log("ending...");
-        xrSession.end();
-      }, 10000);
+      // setTimeout(() => {
+      //   console.log("ending...");
+      //   xrSession.end();
+      // }, 10000);
 
       const vrCallback = (now, frame) => {
           if (xrSession == null || !inVR) {
