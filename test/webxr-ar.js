@@ -109,12 +109,12 @@ function main() {
       })
       inVR = true;
 
-      setTimeout(() => {
-        if (inVR) {
-          console.log("ending...");
-          xrSession.end();
-        }
-      }, 15000);
+      // setTimeout(() => {
+      //   if (inVR) {
+      //     console.log("ending...");
+      //     xrSession.end();
+      //   }
+      // }, 15000);
 
       xrSession.addEventListener("end", () => {
         buffers = initBuffers(gl);
