@@ -831,7 +831,7 @@
       } else {
         e.buttons = p.buttons;
       }
-      // inEvent.buttons = e.buttons;
+      inEvent.buttons = e.buttons;
     },
     mousedown: function(inEvent) {
       if (!this.isEventSimulatedFromTouch(inEvent)) {
@@ -840,7 +840,7 @@
         if (!HAS_BUTTONS) {
           e.buttons = BUTTON_TO_BUTTONS[e.button];
           if (p) { e.buttons |= p.buttons; }
-          // inEvent.buttons = e.buttons;
+          inEvent.buttons = e.buttons;
         }
         pointermap.set(this.POINTER_ID, inEvent);
         if (!p || p.buttons === 0) {
@@ -870,7 +870,7 @@
           // when a mouse button that was pressed outside the document is released
           // inside and other buttons are still pressed down.
           e.buttons = p ? p.buttons & ~up : 0;
-          // inEvent.buttons = e.buttons;
+          inEvent.buttons = e.buttons;
         }
         pointermap.set(this.POINTER_ID, inEvent);
 
