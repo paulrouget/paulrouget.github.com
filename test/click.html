@@ -10,12 +10,15 @@
 </style>
 <script>
   window.onmousedown = e => {
+    console.log("mousedown");
     document.querySelector("div").style.backgroundColor = "green";
   };
   window.onmouseup = e => {
+    console.log("mouseup");
     document.querySelector("div").style.backgroundColor = "red";
   };
   window.onclick = e => {
+    console.log("click");
     document.querySelector("div").style.top = e.clientY + "px";
     document.querySelector("div").style.left = e.clientX + "px";
   };
