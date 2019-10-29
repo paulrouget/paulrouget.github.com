@@ -43,11 +43,10 @@ var createScene = async function() {
     console.log("xr not supported")
   } else {
     // Create output canvas manager (this controls where the xr frames will be rendered)
-    // var xrOutputCanvas = new BABYLON.WebXRManagedOutputCanvas(xrHelper, engine.getRenderingCanvas());
+    var xrOutputCanvas = new BABYLON.WebXRManagedOutputCanvas(xrHelper, engine.getRenderingCanvas());
 
     // Create ui for entering/exiting xr
     let renderTarget = xrHelper.sessionManager.getWebXRRenderTarget(xrHelper.onStateChangedObservable);
-    // var enterExitUI = await BABYLON.WebXREnterExitUI.CreateAsync(scene, xrHelper, {webXRManagedOutputCanvas: xrOutputCanvas})
     var enterExitUI = await BABYLON.WebXREnterExitUI.CreateAsync(scene, xrHelper, {renderTarget: renderTarget});
 
     // Position camera when entering XR
