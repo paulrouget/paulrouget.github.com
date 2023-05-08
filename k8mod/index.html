@@ -6,7 +6,7 @@
 
 <style>
 
-body {max-width: 400px; padding: 20px; margin: 0 auto 100px; line-height: 1.7em}
+body {max-width: 400px; padding: 20px; margin: 50px auto 100px; line-height: 1.7em}
 body {font-family: Georgia, Times, "Times New Roman", serif;}
 
 figure {
@@ -38,7 +38,7 @@ figure > video, figure > img { width: 100% }
 
 <h1>K8MOD</h1>
 
-<p>This page is about my (semi-failed) attempt to build a <strong>low-tech smartwatch</strong> that would retrofit within these 90s' Casio watches. I have a working prototype (PCB, BLE, Firmware, antenna: all functional) but I am missing the screen and haven't fully finalized the electronics (manufacturing issues, poor hiring choice, and because "money").</p>
+<p>This page is about my (semi-failed) attempt to build a <strong>low-tech smartwatch</strong> that would retrofit within these 90s' Casio watches. I have a working prototype (PCB, BLE, Firmware (Rust), antenna: all functional) but I am missing the screen and haven't fully finalized the electronics (manufacturing issues, poor hiring choice, and because "money"). More on that at the end.</p>
 
 <p>I loved the idea so much though, I didn't want it to die quietly. So here it goes.</p>
 
@@ -46,13 +46,11 @@ figure > video, figure > img { width: 100% }
   <video playsinline controls src="media/all.mp4" poster="media/weather_app.png">Your device doesn't support videos.</video>
   <figcaption>
     K8MOD is a "smart &amp; connected" module replacement for Casio watches.
-    This video shows a few apps: Spotify tracks, share social media link via NFC, weather, phone battery check and bitcoin price, phone media volume.
+    This video shows a few apps: weather, phone battery check, bitcoin price, Spotify tracks, share social media link via NFC, phone media volume.
   </figcaption>
 </figure>
 
 <p class="float">(By the way, <a href="../job/">I'm looking for a job</a>)</p>
-
-<p>(All the demos on this page are captured on a simulator, but they do run on the watch)</p>
 
 <p>The idea was to build something very simple. Do 10% of what a modern smart watch can do, for 10% of its price. Something cheap, hackable, that retrofits within a Casio watch, with a low-tech approach.</p>
 
@@ -76,7 +74,7 @@ figure > video, figure > img { width: 100% }
   </figcaption>
 </figure>
 
-<p>The main idea is to upgrade what this watch can do, <strong>without losing its retro vibe</strong>. The K8MOD module is connected to a smartphone via Bluetooth (BLE), and it would run "apps" that would connect to the internet via the smartphone.</p>
+<p>The main idea is to upgrade what this watch can do, <strong>without losing its retro vibe</strong>. The K8MOD module is connected to a smartphone via Bluetooth (BLE), and it would run "apps".</p>
 
 <figure>
   <img src="media/modules.png">
@@ -90,8 +88,7 @@ figure > video, figure > img { width: 100% }
 <p>There's enough memory in the watch to install ~20 apps. Those apps can control Spotify, display today's weather, show the price of Bitcoin, share your social media account with one tap on your friend phone (via NFC), track your workout, control your smart-light (or any IoT device you have), check phone notifications, etc.</p>
 
 <p>Apps are built in C and sideloaded to the watch with a smartphone. An app has an optional JS counterpart
-which runs on the phones. <a href="https://gist.github.com/paulrouget/205163a6a922f8a933834a88f5e1514a">
-  Here</a> is the full code for the weather app for example (<code>C</code> file and <code>JS</code> file).</p>
+which runs on the phones, which can act as an internet gateway for the watch. <a href="https://gist.github.com/paulrouget/205163a6a922f8a933834a88f5e1514a"> Here</a> is the full code for the weather app for example (<code>C</code> file and <code>JS</code> file).</p>
 
 <figure>
   <img src="media/weather_app.png">
@@ -135,7 +132,7 @@ which runs on the phones. <a href="https://gist.github.com/paulrouget/205163a6a9
 <figure>
   <video playsinline controls src="media/fast.mp4">Your device doesn't support videos.</video>
   <figcaption>
-    Transition between apps with a "sliding" effect. There's not pixels, just segments!
+    Transition between apps with a "sliding" effect. There's no pixels, just segments!
   </figcaption>
 </figure>
 
@@ -150,11 +147,7 @@ which runs on the phones. <a href="https://gist.github.com/paulrouget/205163a6a9
 
 <h2>Battery</h2>
 
-<p>The original plan was to design a system that would not require a daily charge. Maybe once a week, maybe … never? I considered using on a lithium coin battery as non-rechargeable batteries are smaller than rechargeable ones, and do not require the wiring to recharge them, we could pack more energy within the available space.</p>
-
-<p>That would hopefully would allow the watch to run without recharging for months, and then the user would just install a new battery.</p>
-
-<p>This is not something I really have time to actually study. I don't know how realistic this is, and I'm not sure this would be great when it comes to environmental impacts.</p>
+<p>The original plan was to design a system that would not require a daily charge. Maybe once a week? It obviously depends on the usage. I considered using on a lithium coin battery as non-rechargeable batteries are smaller than rechargeable ones, and do not require the wiring to recharge them, and we could pack much more energy within the available space. That would allow the watch to run without recharging for a lot longer, and then the user would just install a new battery. This is not something I really had time to actually study. I don't know how realistic this is, and I'm not sure this would be great when it comes to environmental impact.</p>
 
 <h2>Technical details</h2>
 
@@ -196,11 +189,16 @@ which runs on the phones. <a href="https://gist.github.com/paulrouget/205163a6a9
 
 <h2>Failure</h2>
 
-<p>This was my first time working on hardware.</p>
+<p>This was my first time working on hardware, and it turned out to be a lot more
+complicated that I imagined :) I learnt a ton.</p>
 
 <p>Working with factories and electronics engineers were invaluable experiences,
-but they came with a lot of frustration. I spent a little too much money and time
-on this project, and I sadly can't continue working on it.</p>
+but they came with a lot of frustration. And designing a screen, even for such a
+"basic" technology (segment-based LCD screen), turned out to be very expensive:
+tooling, MOQ, and the work required to design the wiring of the 164 segments, all this
+was beyond what I was willing to spend, in money, and time.</p>
+
+<p>So I couldn't afford to finish this project.</p>
 
 <h2>Contact</h2>
 
