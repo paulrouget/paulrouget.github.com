@@ -5,8 +5,10 @@
 <title>K8MOD</title>
 
 <style>
+
 body {max-width: 400px; padding: 20px; margin: 0 auto 100px; line-height: 1.7em}
 body {font-family: Georgia, Times, "Times New Roman", serif;}
+
 figure {
   margin: 0 -20px;
   padding: 10px 20px;
@@ -15,6 +17,7 @@ figure {
   color: #666;
   text-align: center;
 }
+
 figure > video, figure > img { width: 100% }
 
 @media only screen and (min-width: 875px) {
@@ -35,12 +38,12 @@ figure > video, figure > img { width: 100% }
 
 <h1>K8MOD</h1>
 
-<p>This page is about my (failed) attempt to build a <strong>low-tech smartwatch</strong> that would fit within these 90s' Casio watches. I have a working prototype (PCB, BLE, Firmware, antenna: all functional) but I am missing the screen and haven't finalized the electronics (manufacturing issues, poor hiring choice, and because "money").</p>
+<p>This page is about my (semi-failed) attempt to build a <strong>low-tech smartwatch</strong> that would retrofit within these 90s' Casio watches. I have a working prototype (PCB, BLE, Firmware, antenna: all functional) but I am missing the screen and haven't fully finalized the electronics (manufacturing issues, poor hiring choice, and because "money").</p>
 
 <p>I loved the idea so much though, I didn't want it to die quietly. So here it goes.</p>
 
 <figure>
-  <video controls src="media/all.mp4" poster="media/weather_app.png">Your device doesn't support videos.</video>
+  <video playsinline controls src="media/all.mp4" poster="media/weather_app.png">Your device doesn't support videos.</video>
   <figcaption>
     K8MOD is a "smart &amp; connected" module replacement for Casio watches.
     This video shows a few apps: Spotify tracks, share social media link via NFC, weather, phone battery check and bitcoin price, phone media volume.
@@ -51,12 +54,11 @@ figure > video, figure > img { width: 100% }
 
 <p>(All the demos on this page are captured on a simulator, but they do run on the watch)</p>
 
-<p>The idea was to build something very simple. Do 10% of what a modern smart watch can do, for 10% of its price.</p>
-<p>Something cheap, hackable, that retrofits within a Casio watch, with a low-tech approach.</p>
+<p>The idea was to build something very simple. Do 10% of what a modern smart watch can do, for 10% of its price. Something cheap, hackable, that retrofits within a Casio watch, with a low-tech approach.</p>
 
 <h2>The module</h2>
 
-<p>K8MOD is a piece of electronics that fits right inside a Casio watch. It's made to replace the Casio module: the electronics and the screen.</p>
+<p>K8MOD is a piece of electronics that fits right inside a Casio watch. It's made to replace the Casio module.</p>
 
 <figure>
   <img src="media/compare.jpg">
@@ -65,9 +67,7 @@ figure > video, figure > img { width: 100% }
   </figcaption>
 </figure>
 
-
-<p>The Casio model that I was targeting is named <strong>F91W</strong>. The most famous Casio, and according to Wikipedia, the most sold watch in the world.</p>
-
+<p>The Casio model that I was targeting is named <strong>F91W</strong>. The most famous Casio, and <a href="https://en.wikipedia.org/wiki/Casio_F-91W">according to Wikipedia</a>, the most sold watch in the world.</p>
 
 <figure>
   <img src="media/Casios.jpg">
@@ -76,7 +76,7 @@ figure > video, figure > img { width: 100% }
   </figcaption>
 </figure>
 
-<p>The main idea is to upgrade what this watch can do, <strong>without losing its retro vibe</strong>. The K8MOD module is connected to a smartphone via Bluetooth (BLE), and it would run "apps".</p>
+<p>The main idea is to upgrade what this watch can do, <strong>without losing its retro vibe</strong>. The K8MOD module is connected to a smartphone via Bluetooth (BLE), and it would run "apps" that would connect to the internet via the smartphone.</p>
 
 <figure>
   <img src="media/modules.png">
@@ -87,9 +87,11 @@ figure > video, figure > img { width: 100% }
 
 <h2>Apps</h2>
 
-<p>There's enough memory in the watch to install ~20 apps. Those apps can control Spotify, display today's weather, show the price of Bitcoin, share your social media account with one tap on your friend phone (via NFC), track your workout, control your smart light, check phone notifications, etc. The watch can connect to the web via the smartphone.</p>
+<p>There's enough memory in the watch to install ~20 apps. Those apps can control Spotify, display today's weather, show the price of Bitcoin, share your social media account with one tap on your friend phone (via NFC), track your workout, control your smart-light (or any IoT device you have), check phone notifications, etc.</p>
 
-<p>Apps are built in C and sideloaded to the watch with a smartphone.</p>
+<p>Apps are built in C and sideloaded to the watch with a smartphone. An app has an optional JS counterpart
+which runs on the phones. <a href="https://gist.github.com/paulrouget/205163a6a922f8a933834a88f5e1514a">
+  Here</a> is the full code for the weather app for example (<code>C</code> file and <code>JS</code> file).</p>
 
 <figure>
   <img src="media/weather_app.png">
@@ -122,7 +124,7 @@ figure > video, figure > img { width: 100% }
 <p>The screen comes with a backlight that would only turn on when the user would long-press on the Top-Left button.</p>
 
 <figure>
-  <video controls src="media/matrix_cropped.mp4">Your device doesn't support videos.</video>
+  <video playsinline controls src="media/matrix_cropped.mp4">Your device doesn't support videos.</video>
   <figcaption>
     The 5x8 pixels are just enough to show some little animations.
   </figcaption>
@@ -131,7 +133,7 @@ figure > video, figure > img { width: 100% }
 <p>And even though this is a simple segment based display, I managed to simulate some smooth-enough transitions:</p>
 
 <figure>
-  <video controls src="media/fast.mp4">Your device doesn't support videos.</video>
+  <video playsinline controls src="media/fast.mp4">Your device doesn't support videos.</video>
   <figcaption>
     Transition between apps with a "sliding" effect. There's not pixels, just segments!
   </figcaption>
