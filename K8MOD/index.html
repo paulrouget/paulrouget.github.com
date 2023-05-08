@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K8MOD</title>
+
+<style>
+body {max-width: 400px; padding: 20px; margin: 0 auto 100px; line-height: 1.7em}
+body {font-family: Georgia, Times, "Times New Roman", serif;}
+figure {
+  margin: 0 -20px;
+  padding: 10px 20px;
+  background: #EEE;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+}
+figure > video, figure > img { width: 100% }
+
+@media only screen and (min-width: 875px) {
+  .float {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+    padding: 0 20px;
+  }
+  figure {
+    max-width: 250px;
+    margin: auto;
+  }
+}
+
+</style>
+
+<h1>K8MOD</h1>
+
+<p>This page is about my (failed) attempt to build a <strong>low-tech smartwatch</strong> that would fit within these 90s' Casio watches. I have a working prototype (PCB, BLE, Firmware, antenna: all functional) but I am missing the screen and haven't finalized the electronics (manufacturing issues, poor hiring choice, and because "money").</p>
+
+<p>I loved the idea so much though, I didn't want it to die quietly. So here it goes.</p>
+
+<figure>
+  <video controls src="media/all.mp4" poster="media/weather_app.png">Your device doesn't support videos.</video>
+  <figcaption>
+    K8MOD is a "smart &amp; connected" module replacement for Casio watches.
+    This video shows a few apps: Spotify tracks, share social media link via NFC, weather, phone battery check and bitcoin price, phone media volume.
+  </figcaption>
+</figure>
+
+<p class="float">(By the way, <a href="../job/">I'm looking for a job</a>)</p>
+
+<p>(All the demos on this page are captured on a simulator, but they do run on the watch)</p>
+
+<p>The idea was to build something very simple. Do 10% of what a modern smart watch can do, for 10% of its price.</p>
+<p>Something cheap, hackable, that retrofits within a Casio watch, with a low-tech approach.</p>
+
+<h2>The module</h2>
+
+<p>K8MOD is a piece of electronics that fits right inside a Casio watch. It's made to replace the Casio module: the electronics and the screen.</p>
+
+<figure>
+  <img src="media/compare.jpg">
+  <figcaption>
+    Original Casio module vs. K8MOD module
+  </figcaption>
+</figure>
+
+
+<p>The Casio model that I was targeting is named <strong>F91W</strong>. The most famous Casio, and according to Wikipedia, the most sold watch in the world.</p>
+
+
+<figure>
+  <img src="media/Casios.jpg">
+  <figcaption>
+    Compatible Casio watches.
+  </figcaption>
+</figure>
+
+<p>The main idea is to upgrade what this watch can do, <strong>without losing its retro vibe</strong>. The K8MOD module is connected to a smartphone via Bluetooth (BLE), and it would run "apps".</p>
+
+<figure>
+  <img src="media/modules.png">
+  <figcaption>
+    The K8MOD module. You can see the custom BLE antenna on the top right.
+  </figcaption>
+</figure>
+
+<h2>Apps</h2>
+
+<p>There's enough memory in the watch to install ~20 apps. Those apps can control Spotify, display today's weather, show the price of Bitcoin, share your social media account with one tap on your friend phone (via NFC), track your workout, control your smart light, check phone notifications, etc. The watch can connect to the web via the smartphone.</p>
+
+<p>Apps are built in C and sideloaded to the watch with a smartphone.</p>
+
+<figure>
+  <img src="media/weather_app.png">
+  <figcaption>
+    The weather application: 20 degrees outside, and it's sunny. Not much, but just enough.
+  </figcaption>
+</figure>
+
+
+<h2>3 Buttons</h2>
+
+<p>To control the apps, I re-purposed the 3 Casio buttons. There's a Top-Left button, and a Bottom-Left and a Bottom-Right button.</p>
+
+<p>Pressing the Top-Left button would just focus the next app. Long press would turn on the back light.</p>
+
+<p>The Bottom-Left and Bottom-Right buttons are dedicated to the currently focused app. For example, for the Spotify app, the 2 bottom buttons would act as Previous Track / Next Track buttons. For the Volume app, it decreases/increases the volume. For the Notification app it dismisses/keeps notifications. Etc.</p>
+
+<h2>The screen</h2>
+
+<figure>
+  <img src="media/lcd.png">
+  <figcaption>
+    The 164 segments screen.
+  </figcaption>
+</figure>
+
+
+<p>To me, keeping the screen as simple as the original Casio was crucial. But the original screen was too limited. It was too difficult to display any readable text. So I redesigned the screen and doubled the amount of "segments". As you can see, the "pixels" on a Casio watch are not really pixels, but lines. We call them segments. A regular Casio watch has ~80 segments. The K8MOD screen has 164 segments. Most of these segments are used for the top row which would allow to display 9 letters, and a matrix of dots, which can be used to display little animations.</p>
+
+<p>The screen comes with a backlight that would only turn on when the user would long-press on the Top-Left button.</p>
+
+<figure>
+  <video controls src="media/matrix_cropped.mp4">Your device doesn't support videos.</video>
+  <figcaption>
+    The 5x8 pixels are just enough to show some little animations.
+  </figcaption>
+</figure>
+
+<p>And even though this is a simple segment based display, I managed to simulate some smooth-enough transitions:</p>
+
+<figure>
+  <video controls src="media/fast.mp4">Your device doesn't support videos.</video>
+  <figcaption>
+    Transition between apps with a "sliding" effect. There's not pixels, just segments!
+  </figcaption>
+</figure>
+
+<h2>Buzzer &amp; Vibration motor</h2>
+
+<p>The inclusion of a buzzer and a vibration motor turned out to be a lot more useful that I initially thought. There's so much I wanted to draw on the screen to give feedback to the user (looped through options, reached the end of a list, did a valid / invalid action, etc), but it was really stretching it. 164 segments is really not that much.</p>
+
+<p>The buzzer/vibration is used for the alarm and notifications, but turned out it's also very useful for feedback. To signal "valid" action, I would use a short pleasant beep, and longer-lower-pitch noise for invalid actions feedback.</p>
+
+<p>In silent mode, I would use the vibration only.</p>
+
+
+<h2>Battery</h2>
+
+<p>The original plan was to design a system that would not require a daily charge. Maybe once a week, maybe … never? I considered using on a lithium coin battery as non-rechargeable batteries are smaller than rechargeable ones, and do not require the wiring to recharge them, we could pack more energy within the available space.</p>
+
+<p>That would hopefully would allow the watch to run without recharging for months, and then the user would just install a new battery.</p>
+
+<p>This is not something I really have time to actually study. I don't know how realistic this is, and I'm not sure this would be great when it comes to environmental impacts.</p>
+
+<h2>Technical details</h2>
+
+<h3>Hardware</h3>
+
+<ul>
+  <li>nRF52382 SoC (Cortex M4, NFC &amp; BLE support)
+  <li>NFC coil
+  <li>BLE custom antenna
+  <li>3 buttons (already part of the watch)
+  <li>Accelerometer (optional?)
+  <li>Vibration motor
+  <li>Buzzer
+  <li>Screen:
+    <ul>
+      <li>164 segments transflective monochrome Liquid Crystal Display (FS)TN screen
+      <li>backlight
+    </ul>
+  </li>
+  <li>A fixture to flash/debug firmware
+</ul>
+
+<figure>
+  <img src="media/fixture.jpg">
+  <figcaption>
+    Fixture, for flashing/debugging the firmware.
+  </figcaption>
+</figure>
+
+
+<h3>Software</h3>
+
+<ul>
+  <li>Rust firmware on top of Nordic SDK</li>
+  <li>Apps built in C and dynamically loaded from the firmware (that was a tough one, there's no <code>dlopen</code> on bare metal). Also tried to run some bytecode + vm, but that was too much to ask for such a small platform.</li>
+  <li>iPhone app to sideload apps and bridge internet communication</li>
+  <li>simulator and devtools to make it easier to build apps</li>
+</ul>
+
+<h2>Failure</h2>
+
+<p>This was my first time working on hardware.</p>
+
+<p>Working with factories and electronics engineers were invaluable experiences,
+but they came with a lot of frustration. I spent a little too much money and time
+on this project, and I sadly can't continue working on it.</p>
+
+<h2>Contact</h2>
+
+<p>If you want more details about the project, do not hesitate to reach out:
+<a href="mailto:me@paulrouget.com">me@paulrouget.com</a>,
+twitter: <a href="https://twitter.com/paulrouget2">@paulrouget2</a>.</p>
+
+<p>And by the way, <a href="../job/">I'm looking for a job</a>.</p>
