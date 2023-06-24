@@ -72,6 +72,9 @@ const draw = p => {
         p.cork_radius * 2,
         1);
     }
+    document.querySelector("#filling").classList.remove("red");
+  } else {
+    document.querySelector("#filling").classList.add("red");
   }
 
 }

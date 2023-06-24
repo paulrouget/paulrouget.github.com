@@ -7,7 +7,7 @@
 .hide {
   display: none;
 }
-#too_little {
+.red {
   color: red;
 }
 input {
@@ -20,9 +20,9 @@ input {
 <p>Volume disponible dans la bouteille: <span id="total_volume"></span>ml.</p>
 <p>Volume du liquide après dilatation: <span id="liquid_max_volume"></span>ml.</p>
 <p>Le liquide prendra <span id="filling"></span>% du volume disponible dans la bouteille.</p>
-<p class="hide" id="too_little">Liquide n'attend pas le bouchon.</p>
+<p class="hide red" id="too_little">Liquide n'attend pas le bouchon.</p>
 <canvas width=300 height=300></canvas>
-<p id="ww">Ces lignes représentent l'intérieur de la bouteille. L'épaisseur du verre n'est pas inclue. La ligne rouge représente la hauteur maximum du liquide.<p>
+<p>Ces lignes représentent l'intérieur de la bouteille. L'épaisseur du verre n'est pas inclue. La ligne rouge représente la hauteur maximum du liquide.<p>
 <hr>
 
 <p>Valeurs que tu peux changer:</p>
